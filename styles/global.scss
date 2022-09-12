@@ -1,0 +1,179 @@
+@import './theme/dark.scss';
+@import './layout.scss';
+@import './typography.scss';
+@import './effects.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body { background: $color_background; }
+
+nav {
+  ul {
+    list-style: none;
+    display: flex;
+
+    $padding: 1rem;
+
+    margin: calc($padding * -.5);
+
+    li {
+      padding: calc($padding * .5);
+    }
+  }
+}
+
+header {
+  .section { justify-content: space-between }
+  .logo { fill: $color_title }
+  .underline:hover::after, .underline:focus::after { background: $color_callout }
+}
+
+.blurred {
+  padding-top: 0;
+  background: $color_backgroundAlpha;
+  backdrop-filter: $blurHard;
+}
+
+main {
+  .underline:hover::after, .underline:focus::after { background: $color_callout }
+}
+
+footer {
+  .logo { fill: $color_footnote }
+  .underline:hover::after, .underline:focus::after { background: $color_callout }
+
+  nav ul {
+    :first-child:before {
+      content: none;
+    }
+
+    li:before {
+      content: '•';
+      margin-right: 1rem;
+      color: $color_footnote;
+    }
+  }
+}
+
+.home-subheading {
+  margin: 2rem 0;
+}
+
+.home-buttons {
+  $padding: 3rem;
+  margin: calc($padding * -1);
+  margin-bottom: 2rem;
+
+  .button { margin: calc($padding * 0.5) }
+  .dapp {
+    font-weight: 600;
+    background: $color_title;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+
+  .docs::after {
+    content: 'arrow_forward_ios';
+    font-family: 'Material Symbols Outlined';
+    font-size: .75rem;
+    margin-left: .25rem;
+  }
+
+  .dapp span {
+    background: $color_tech;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track { background: $color_background }
+
+::-webkit-scrollbar-thumb {
+  background: $color_footnote;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover { background: $color_caption }
+
+.blurredBg {
+  display: block;
+  position: fixed;
+  top: 20vh;
+  max-width: 100vw;
+  width: 80vw;
+  min-width: 400px;
+  height: 20vw;
+  min-height: 200px;
+  z-index: -1;
+  transform: scale();
+  filter: blur(8rem);
+
+  .__circle {
+    display: block;
+    position: absolute;
+    width: 80%;
+    height: 60%;
+    opacity: .9;
+    border-radius: 50%;
+  }
+
+  $duration: 4s;
+  
+  .__1 {
+    background-color: $color_cyan;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 0;
+    animation: circle1 $duration ease-in-out infinite;
+  }
+  .__2 {
+    background-color: $color_blue;
+    left: 0;
+    bottom: 0;
+    animation: circle2 $duration ease-in-out infinite;
+  }
+  .__3 {
+    background-color: $color_purple;
+    right: 0;
+    bottom: 0;
+    animation: circle3 $duration ease-in-out infinite;
+  }
+}
+
+@keyframes circle1 {
+  0% { transform: translate(-40%, -20%) }
+  25% { transform: translate(-55%, -10%) }
+  75% { transform: translate(-45%, 20%) }
+  100% { transform: translate(-40%, -20%) }
+}
+
+@keyframes circle2 {
+  0% { transform: translate(-10%, 30%) }
+  25% { transform: translate(20%, 10%) }
+  75% { transform: translate(25%, -20%) }
+  100% { transform: translate(-10%, 30%) }
+}
+
+@keyframes circle3 {
+  0% { transform: translate(20%, -10%) }
+  25% { transform: translate(-20%, 30%) }
+  75% { transform: translate(10%, -20%) }
+  100% { transform: translate(20%, -10%) }
+}
+
+@media screen and (max-width: $tablet) {
+  .blurredBg { filter: blur(6rem) }
+}
+
+@media screen and (max-width: $mobile) {
+  .blurredBg { filter: blur(4rem) }
+}

@@ -1,0 +1,63 @@
+/* Primary */
+$color_purple: hsl(259, 71%, 50%);
+$color_pink: hsl(310, 77%, 50%);
+$color_blue: hsl(200, 80%, 50%);
+$color_cyan: hsl(180, 70%, 50%);
+
+/* Gradient */
+$color_tech: linear-gradient(265deg, $color_purple -1%, $color_pink 101%);
+
+/* Signal */
+$__red: 0;
+$__yellow: 50;
+$__green: 130;
+$__blue: 200;
+
+$__saturation: 60%;
+
+$__light: 60%;
+$__dark: 20%;
+
+$__solid: 100%;
+$__tint: 20%;
+
+$color_dangerLight: hsla($__red, $__saturation, $__light, $__solid);
+$color_dangerDark: hsla($__red, $__saturation, $__dark, $__solid);
+$color_dangerTint: hsla($__red, $__saturation, $__light, $__tint);
+
+$color_warningLight: hsla($__yellow, $__saturation, $__light, $__solid);
+$color_warningDark: hsla($__yellow, $__saturation, $__dark, $__solid);
+$color_warningTint: hsla($__yellow, $__saturation, $__light, $__tint);
+
+$color_successLight: hsla($__green, $__saturation, $__light, $__solid);
+$color_successDark: hsla($__green, $__saturation, $__dark, $__solid);
+$color_successTint: hsla($__green, $__saturation, $__light, $__tint);
+
+$color_informationLight: hsla($__blue, $__saturation, $__light, $__solid);
+$color_informationDark: hsla($__blue, $__saturation, $__dark, $__solid);
+$color_informationTint: hsla($__blue, $__saturation, $__light, $__tint);
+
+/* Fill */
+$__base: 0;
+$__overlay: 255;
+
+$color_background: rgba($__base, $__base, $__base, 1);
+$color_backgroundAlpha: rgba($__base, $__base, $__base, 75%);
+$color_overlay1: rgba($__overlay, $__overlay, $__overlay, 10%);
+$color_overlay2: rgba($__overlay, $__overlay, $__overlay, 20%);
+$color_overlay3: rgba($__overlay, $__overlay, $__overlay, 40%);
+
+/* Text */
+$color_title: rgba($__overlay, $__overlay, $__overlay, 100%);
+$color_button: rgba($__overlay, $__overlay, $__overlay, 100%);
+$color_callout: rgba($__overlay, $__overlay, $__overlay, 90%);
+$color_input: rgba($__overlay, $__overlay, $__overlay, 90%);
+$color_base: rgba($__overlay, $__overlay, $__overlay, 80%);
+$color_caption: rgba($__overlay, $__overlay, $__overlay, 60%);
+$color_footnote: rgba($__overlay, $__overlay, $__overlay, 40%);
+
+/* Border */
+$color_border: hsla(240, 0, 30, 65%);
+
+/* Misc */
+$color_highlight: hsla(0, 0, 100, 50%);
