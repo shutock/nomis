@@ -50,19 +50,23 @@ header {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    padding-top: 2rem;
     transition: padding-top .2s ease-in-out;
+}
+
+.whitespace {
+    height: 2rem;
+    display: block;
 }
 
 footer { padding-bottom: 2rem }
 
 @media screen and (max-width: $tablet) {
     footer { padding-bottom: 1rem }
-    header { padding-top: 1rem }
+    header { .whitespace { height: 0 } }
     main { padding: 2rem 0 }
 }
 @media screen and (max-width: $mobile) {
     footer { padding-bottom: 0 }
-    header { padding-top: 0 }
+    header { .whitespace { height: 0 } }
     main { padding: 0 }
 }
