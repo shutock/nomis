@@ -2,6 +2,12 @@
 @import './layout.scss';
 @import './typography.scss';
 @import './effects.scss';
+<<<<<<< HEAD
+=======
+@import './scrollbar.scss';
+@import './blurredBg.scss';
+@import './card.scss';
+>>>>>>> 1adbfdf (Improvements)
 
 * {
   padding: 0;
@@ -91,6 +97,7 @@ footer {
   }
 }
 
+<<<<<<< HEAD
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -176,4 +183,37 @@ footer {
 
 @media screen and (max-width: $mobile) {
   .blurredBg { filter: blur(4rem) }
+=======
+.information {
+  padding: 1rem;
+  border-radius: $borderMedium;
+  background: $color_overlay1;
+  width: 100%;
+  
+  .container {
+    justify-content: flex-start;
+  }
+
+  .cards {
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    grid-gap: 16px;
+  }
+}
+
+.getScore {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 1rem;
+}
+
+.wallet {
+  display: block;
+  background: red;
+  width: 60%;
+  margin-left: 1rem;
+>>>>>>> 1adbfdf (Improvements)
 }

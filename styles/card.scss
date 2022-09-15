@@ -1,0 +1,63 @@
+@import './typography.scss';
+
+.card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: $borderSmall;
+    background: $color_overlay1;
+    width: 100%;
+    height: 100%;
+
+    h5 { margin: 1rem 0 0 0; }
+}
+
+.score {
+    background: $color_tech;
+
+    .chart {
+        $size: 4rem;
+        width: $size;
+        height: $size;
+        position: relative;
+    
+        .number, .blur, .bg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    
+        .blur {
+            filter: blur(4px);
+            opacity: .75;
+        }
+    
+        .number {
+            font-family: $fontFancy;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.pulse {
+    .chart {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    h5 { margin-top: 5rem; }
+}
+
+.achievement {    
+    .emoji {
+        $size: 4rem;
+        width: $size;
+        height: $size;
+    }
+}
