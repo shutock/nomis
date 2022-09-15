@@ -1,3 +1,3 @@
 export default function Scored() {
-  return null;
+  return "null";
 }

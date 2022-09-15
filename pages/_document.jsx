@@ -9,7 +9,6 @@ export default function Document() {
         <meta name="author" content="Nomis" />
         <meta name="description" content={description} />
         <meta name="og:description" content={description} />
-        <link rel="icon" href="./public/favicon.ico" type="image/icon" />
       </Head>
       <body className="dark">
         <Main />

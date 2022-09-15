@@ -37,7 +37,7 @@ export default function Achievement({ emoji, title, description }) {
   return (
     <div className="container card achievement">
       <div className="emoji">
-        <Image src={src} width="64" height="64" />
+        <Image src={src} width="64" height="64" alt="Emoji" />
       </div>
       <h5>{title}</h5>
       <div>
