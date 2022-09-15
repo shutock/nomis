@@ -10,20 +10,38 @@ const Achievement = dynamic(() => import("../../components/common/Card"), {
 });
 
 export default function GetScrore() {
-  const walletAdress = {
-    wallet: "artyshatilov.eth",
-    score: 69.69,
+  const wallet = {
+    address: "artyshatilov.eth",
+    blockchain: "eth",
     userpick: { userpick },
+    score: 69.69,
     age: { months: 46 },
     balance: 0.07,
     turnover: 44.94,
-    activity12weeks: [0, 2, 1, 3, 6, 2, 4, 1, 6, 8, 4, 9],
+    spendings: 32,
+    activity: [0, 2, 1, 3, 6, 2, 4, 1, 6, 8, 4, 9],
     recentActivity: ["Uniswap", "Rainbow", "OpenSea", "AAVE"],
   };
-  walletAdress.age.years = Math.round(walletAdress.age.months / 12);
+  wallet.age.years = Math.round(wallet.age.months / 12);
+  const spendings = Math.round(wallet.spendings / 10) * 10;
   return (
     <MainLayout title="Get Score">
       <div className="wrapper">
+        <section className="code">
+          <pre>{`wallet = {
+  address: "${wallet.address}",
+  blockchain: "${wallet.blockchain}",
+  userpick: { userpick },
+  score: ${wallet.score},
+  age: { months: ${wallet.age.months} },
+  balance: ${wallet.balance},
+  turnover: ${wallet.turnover},
+  spendings: ${wallet.spendings},
+  activity: [0, 2, 1, 3, 6, 2, 4, 1, 6, 8, 4, 9],
+  recentActivity: ["Uniswap", "Rainbow", "OpenSea", "AAVE"],
+};
+  `}</pre>
+        </section>
         <section className="getScore">
           <div className="container information">
             <section className="highlights">
@@ -31,8 +49,8 @@ export default function GetScrore() {
                 <h4>Highlights</h4>
               </div>
               <div className="container cards">
-                <Score score={walletAdress.score} />
-                <Pulse />
+                <Score score={wallet.score} />
+                <Pulse activity={wallet.activity} />
                 <Achievement
                   emoji="old"
                   title="The Ancesor"
@@ -41,7 +59,7 @@ export default function GetScrore() {
                 <Achievement
                   emoji="old"
                   title="Big Spender"
-                  description="This wallet has a total spendings of more than Ξ30"
+                  description={`This wallet has a total spendings of more than Ξ${spendings}.`}
                 />
               </div>
             </section>

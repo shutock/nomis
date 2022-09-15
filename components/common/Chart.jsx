@@ -1,9 +1,15 @@
-import { Chart as ChartJS, ArcElement } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-
-ChartJS.register(ArcElement);
+import {
+  ArcElement,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+} from "chart.js";
+import { Doughnut, Line } from "react-chartjs-2";
 
 export function Score({ score }) {
+  ChartJS.register(ArcElement);
   const data = {
     datasets: [
       {
@@ -41,13 +47,53 @@ export function Score({ score }) {
   );
 }
 
-export function Activity({
-  week12 = 0,
-  week34 = 1,
-  week56 = 0,
-  week78 = 2,
-  week910 = 0,
-  week1112 = 3,
-}) {
-  return <div className="chart"></div>;
+export function Activity({ activity }) {
+  ChartJS.register(LinearScale, LineElement, CategoryScale, PointElement);
+
+  const labels = [
+    "week1",
+    "week2",
+    "week3",
+    "week4",
+    "week5",
+    "week6",
+    "week7",
+    "week8",
+    "week9",
+    "week10",
+    "week11",
+    "week12",
+  ];
+  const data = {
+    labels,
+    datasets: [
+      {
+        data: [0, 2, 1, 3, 6, 2, 4, 1, 6, 8, 4, 9],
+        borderColor: "#fff",
+        borderRadius: "999",
+        borderWidth: "4",
+        lineTension: 0.5,
+        pointRadius: 0,
+        backgroundColor: "red",
+      },
+    ],
+  };
+  const options = {
+    responsive: true,
+    layout: {
+      padding: 0,
+    },
+    scales: {
+      y: { display: false },
+      x: { display: false },
+    },
+  };
+  return (
+    <div className="chart">
+      <Line data={data} options={options} />
+      <div className="blur">
+        <Line data={data} options={options} />
+      </div>
+    </div>
+  );
 }

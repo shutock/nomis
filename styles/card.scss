@@ -41,14 +41,34 @@
             font-family: $fontFancy;
             font-size: 1.5rem;
             font-weight: 700;
+            color: $color_title;
         }
     }
 }
 
 .pulse {
+    position: relative;
+    overflow: hidden;
     .chart {
-        width: 4rem;
-        height: 4rem;
+        position: absolute;
+        top: 1rem;
+        left: -.25rem;
+        right: -.25rem;
+        max-height: 4rem;
+
+        .blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            filter: blur(4px);
+            opacity: .75;
+        }
+
+        canvas {
+            max-height: 100%;
+        }
     }
 
     h5 { margin-top: 5rem; }

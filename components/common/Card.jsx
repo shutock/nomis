@@ -17,9 +17,10 @@ export function Score({ score = 69.69 }) {
   );
 }
 
-export function Pulse() {
+export function Pulse({ activity }) {
   return (
     <div className="container card pulse">
+      <Chart.Activity activity={activity} />
       <h5>Wallet&apos;s Pulse</h5>
       <div>
         <p>
