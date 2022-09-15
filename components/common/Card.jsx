@@ -20,11 +20,11 @@ export function Score({ score = 69.69 }) {
 export function Pulse() {
   return (
     <div className="container card pulse">
-      <h5>Wallet's Pulse</h5>
+      <h5>Wallet&apos;s Pulse</h5>
       <div>
         <p>
-          This is wallet’s on-chain activity. You’ve been quite active for the
-          last 3 months.
+          This is wallet&apos;s on-chain activity. You&apos;ve been quite active
+          for the last 3 months.
         </p>
       </div>
     </div>

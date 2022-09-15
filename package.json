@@ -10,15 +10,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "next": "12.3.0",
     "react": "18.2.0",
-=======
     "chart.js": "^3.9.1",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-chartjs-2": "^4.3.1",
->>>>>>> 1adbfdf (Improvements)
     "react-dom": "18.2.0",
     "sass": "^1.54.9"
   },

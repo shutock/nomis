@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import './effects.scss';
 
 $maxWidth: 1400px;
@@ -70,82 +69,4 @@ footer { padding-bottom: 2rem }
     footer { padding-bottom: 0 }
     header { .whitespace { height: 0 } }
     main { padding: 0 }
-=======
-@import './effects.scss';
-
-$maxWidth: 1400px;
-$mobile: 420px;
-$tablet: 960px;
-
-$borderSmall: .75rem;
-$borderMedium: calc($borderSmall + 1rem);
-$borderLarge: calc($borderSmall + 2rem);
-$borderXLarge: calc($borderSmall + 3rem);
-
-header, main, article, footer, article, .wrapper, .section, .container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-main { padding: 4rem 0 }
-
-.wrapper {
-    max-width: $maxWidth;
-    margin: 0 -.5rem;
-}
-
-.section {
-    $padding: 1rem;
-    padding: $padding;
-    margin: calc($padding * -.5);
-
-    .container {
-        padding: calc($padding * .5);
-    }
-}
-
-.overlay {
-    background: $color_overlay1;
-    border-radius: $borderMedium;
-    padding: .5rem 1.5rem !important;
-    backdrop-filter: $blurHard;
-
-    * { padding: .5rem }
-}
-
-.left { justify-content: flex-start }
-
-.fit { max-width: fit-content}
-.two { max-width: 50% }
-.three { max-width: calc(100% / 3) }
-.four { max-width: 25% }
-
-header {
-    z-index: 3;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    transition: padding-top .2s ease-in-out;
-}
-
-.whitespace {
-    height: 2rem;
-    display: block;
-}
-
-footer { padding-bottom: 2rem }
-
-@media screen and (max-width: $tablet) {
-    footer { padding-bottom: 1rem }
-    header { .whitespace { height: 0 } }
-    main { padding: 2rem 0 }
-}
-@media screen and (max-width: $mobile) {
-    footer { padding-bottom: 0 }
-    header { .whitespace { height: 0 } }
-    main { padding: 0 }
->>>>>>> 1adbfdf (Improvements)
 }
