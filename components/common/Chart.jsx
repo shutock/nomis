@@ -8,10 +8,6 @@ import {
 } from "chart.js";
 import { Doughnut, Line } from "react-chartjs-2";
 
-ChartJS.defaults.font = {
-  family: "Segoe UI",
-};
-
 export function Score({ score }) {
   ChartJS.register(ArcElement);
   const data = {
@@ -51,7 +47,7 @@ export function Score({ score }) {
   );
 }
 
-export function Activity() {
+export function Activity({ activity }) {
   ChartJS.register(LinearScale, LineElement, CategoryScale, PointElement);
 
   const labels = [
@@ -84,6 +80,9 @@ export function Activity() {
   };
   const options = {
     responsive: true,
+    layout: {
+      padding: 0,
+    },
     scales: {
       y: { display: false },
       x: { display: false },
