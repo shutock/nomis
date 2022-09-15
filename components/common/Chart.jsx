@@ -91,9 +91,9 @@ export function Activity({ activity }) {
   return (
     <div className="chart">
       <Line data={data} options={options} />
-      <div className="blur">
+      {/* <div className="blur">
         <Line data={data} options={options} />
-      </div>
+      </div> */}
     </div>
   );
 }
