@@ -4,6 +4,11 @@ $maxWidth: 1400px;
 $mobile: 420px;
 $tablet: 960px;
 
+$borderSmall: .75rem;
+$borderMedium: calc($borderSmall + 1rem);
+$borderLarge: calc($borderSmall + 2rem);
+$borderXLarge: calc($borderSmall + 3rem);
+
 header, main, article, footer, article, .wrapper, .section, .container {
     width: 100%;
     display: flex;
