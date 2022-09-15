@@ -84,9 +84,6 @@ export function Activity() {
   };
   const options = {
     responsive: true,
-    layout: {
-      padding: 0,
-    },
     scales: {
       y: { display: false },
       x: { display: false },

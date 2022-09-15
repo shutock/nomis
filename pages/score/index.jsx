@@ -50,7 +50,7 @@ export default function GetScrore() {
               </div>
               <div className="container cards">
                 <Score score={wallet.score} />
-                <Pulse activity={wallet.activity} />
+                <Pulse />
                 <Achievement
                   emoji="old"
                   title="The Ancesor"
