@@ -51,7 +51,7 @@ export function Score({ score }) {
   );
 }
 
-export function Activity({ activity }) {
+export function Activity() {
   ChartJS.register(LinearScale, LineElement, CategoryScale, PointElement);
 
   const labels = [
