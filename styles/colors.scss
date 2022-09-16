@@ -13,10 +13,18 @@ $__yellow: 50;
 $__green: 130;
 $__blue: 200;
 
-$__saturation: 60%;
+.dark {
+  --saturation: 60%;
+}
 
-$__light: 60%;
-$__dark: 20%;
+.light {
+  --saturation: 80%;
+}
+
+$__saturation: var(--saturation);
+
+$__light: 100%;
+$__dark: 30%;
 
 $__solid: 100%;
 $__tint: 20%;
@@ -38,8 +46,18 @@ $color_informationDark: hsla($__blue, $__saturation, $__dark, $__solid);
 $color_informationTint: hsla($__blue, $__saturation, $__light, $__tint);
 
 /* Fill */
-$__base: 0;
-$__overlay: 255;
+.dark {
+  --base: 0;
+  --overlay: 255;
+}
+
+.light {
+  --base: 255;
+  --overlay: 0;
+}
+
+$__base: var(--base);
+$__overlay: var(--overlay);
 
 $color_background: rgba($__base, $__base, $__base, 1);
 $color_backgroundAlpha: rgba($__base, $__base, $__base, 75%);
@@ -60,4 +78,12 @@ $color_footnote: rgba($__overlay, $__overlay, $__overlay, 40%);
 $color_border: hsla(240, 0, 30, 65%);
 
 /* Misc */
-$color_highlight: hsla(0, 0, 100, 50%);
+.dark {
+  --highlight: hsla(0, 0, 100, 50%);
+}
+
+.light {
+  --highlight: hsla(0, 0, 100, 0%);
+}
+
+$color_highlight: var(--highlight);

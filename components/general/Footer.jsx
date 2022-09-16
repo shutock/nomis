@@ -8,19 +8,21 @@ export default function Header() {
     <>
       <footer>
         <div className="wrapper">
-          <div className="section">
-            <div className="container left">
+          <section>
+            <div className="container start">
               <Link href="/">
                 <a className="margin">
                   <Logo></Logo>
                 </a>
               </Link>
             </div>
-            <p className="footnote container left">
+
+            <p className="footnote container start">
               Nomis is a wallet scoring and credentials protocol which helps
               on-chain developers build better DeFi products.
             </p>
-            <nav className="container left">
+
+            <nav className="container start">
               <ul>
                 {footerMenu.map((item, idx) => (
                   <li key={`menu item ${idx}`}>
@@ -31,15 +33,17 @@ export default function Header() {
                 ))}
               </ul>
             </nav>
-            <div className="container left">
+
+            <div className="container start">
               <Link href="mailto:gm@nomis.cc">
                 <a className="footnote underline">gm@nomis.cc</a>
               </Link>
             </div>
-            <p className="footnote container left">
+
+            <p className="footnote container start">
               2022 © Nomis. All rights reserved.
             </p>
-          </div>
+          </section>
         </div>
       </footer>
     </>

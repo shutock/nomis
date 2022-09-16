@@ -1,77 +1,81 @@
-@import './effects.scss';
-
 $maxWidth: 1400px;
 $mobile: 420px;
 $tablet: 960px;
 
-$borderSmall: .75rem;
+$borderSmall: 0.75rem;
 $borderMedium: calc($borderSmall + 1rem);
 $borderLarge: calc($borderSmall + 2rem);
 $borderXLarge: calc($borderSmall + 3rem);
 
-header, main, article, footer, article, .wrapper, .section, .container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+header,
+main,
+article,
+footer,
+article,
+.wrapper,
+section,
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-main { padding: 4rem 0 }
+section {
+  padding: 1rem;
+}
 
 .wrapper {
-    max-width: $maxWidth;
-    margin: 0 -.5rem;
+  max-width: $maxWidth;
 }
 
-.section {
-    $padding: 1rem;
-    padding: $padding;
-    margin: calc($padding * -.5);
-
-    .container {
-        padding: calc($padding * .5);
-    }
+.fit {
+  width: fit-content;
 }
 
-.overlay {
-    background: $color_overlay1;
-    border-radius: $borderMedium;
-    padding: .5rem 1.5rem !important;
-    backdrop-filter: $blurHard;
-
-    * { padding: .5rem }
+.two {
+  flex: 50%;
 }
 
-.left { justify-content: flex-start }
+.three {
+  flex: calc(100% / 3);
+}
 
-.fit { max-width: fit-content}
-.two { max-width: 50% }
-.three { max-width: calc(100% / 3) }
-.four { max-width: 25% }
+.four {
+  flex: 25%;
+}
 
 header {
-    z-index: 3;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    transition: padding-top .2s ease-in-out;
+  z-index: 3;
+  position: fixed;
+  top: 0;
 }
 
-.whitespace {
-    height: 2rem;
-    display: block;
+main {
+  margin-top: 3.5rem;
+  padding: 4rem 0;
 }
 
-footer { padding-bottom: 2rem }
+footer {
+  padding-bottom: 2rem;
+}
 
 @media screen and (max-width: $tablet) {
-    footer { padding-bottom: 1rem }
-    header { .whitespace { height: 0 } }
-    main { padding: 2rem 0 }
+  footer {
+    padding-bottom: 1rem;
+  }
+  main {
+    padding: 2rem 0;
+  }
 }
+
 @media screen and (max-width: $mobile) {
-    footer { padding-bottom: 0 }
-    header { .whitespace { height: 0 } }
-    main { padding: 0 }
+  footer {
+    padding-bottom: 0;
+  }
+  main {
+    padding: 0;
+  }
 }

@@ -74,7 +74,6 @@ export function Activity({ activity }) {
         borderWidth: "4",
         lineTension: 0.5,
         pointRadius: 0,
-        backgroundColor: "red",
       },
     ],
   };
@@ -84,8 +83,14 @@ export function Activity({ activity }) {
       padding: 0,
     },
     scales: {
-      y: { display: false },
-      x: { display: false },
+      y: {
+        display: false,
+        beginAtZero: true,
+      },
+      x: {
+        display: false,
+        beginAtZero: true,
+      },
     },
   };
   return (

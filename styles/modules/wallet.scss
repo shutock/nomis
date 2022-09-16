@@ -1,0 +1,19 @@
+.wallet {
+  .userpick {
+    width: 10rem;
+    height: 10rem;
+    background: $color_overlay1;
+    padding: 0.5rem;
+    border-radius: 999px;
+
+    img {
+      border-radius: 999px;
+    }
+
+    .meta {
+      .container {
+        flex: 1 calc(100% / 3);
+      }
+    }
+  }
+}

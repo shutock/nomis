@@ -8,7 +8,7 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/nomisIcon.svg" type="image/svg+xml" />
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }

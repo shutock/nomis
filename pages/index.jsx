@@ -12,7 +12,7 @@ export default function Home() {
     <MainLayout title={"Home"}>
       <BlurredBg></BlurredBg>
       <div className="wrapper">
-        <div className="section">
+        <section>
           <h1 className="container center">
             Wallet Scoring and
             <br />
@@ -21,8 +21,9 @@ export default function Home() {
           <h2 className="container headline center home-subheading">
             The infrastucture for data-based personalized web3 experiences
           </h2>
-        </div>
-        <div className="section">
+        </section>
+
+        <section>
           <div className="container home-buttons">
             <Link href="/score">
               <a className="button dapp">
@@ -35,8 +36,9 @@ export default function Home() {
               </a>
             </Link>
           </div>
-        </div>
-        <div className="section">
+        </section>
+
+        <section>
           <div className="container fit overlay">
             <p>Backed by</p>
             <Link href='https://aave.com/?utm_source="nomis.cc"'>
@@ -44,18 +46,18 @@ export default function Home() {
                 <Image src={aaveLogo} alt="AAVE"></Image>
               </a>
             </Link>
-            <Link href='https://solana.com/?utm_source="nomis.cc'>
+            <Link href='https://solana.com/?utm_source="nomis.cc"'>
               <a className="margin">
                 <Image src={solanaLogo} alt="Solana"></Image>
               </a>
             </Link>
-            <Link href='https://1inch.org/?utm_source="nomis.cc'>
+            <Link href='https://1inch.org/?utm_source="nomis.cc"'>
               <a className="margin">
                 <Image src={inchLogo} alt="1inch"></Image>
               </a>
             </Link>
           </div>
-        </div>
+        </section>
       </div>
     </MainLayout>
   );

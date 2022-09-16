@@ -1,0 +1,36 @@
+.overlay {
+  background: $color_overlay1;
+  border-radius: $borderMedium;
+  backdrop-filter: $blurHard;
+  -webkit-backdrop-filter: $blurHard;
+  padding: 1rem 1.5rem;
+}
+
+.home-subheading {
+  margin: 2rem 0;
+}
+
+.home-buttons {
+  margin-bottom: 2rem;
+  gap: 2rem;
+
+  .dapp {
+    font-weight: 600;
+    background: $color_title;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+
+  .docs::after {
+    content: "arrow_forward_ios";
+    font-family: "Material Symbols Outlined";
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+  }
+
+  .dapp span {
+    background: $color_tech;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

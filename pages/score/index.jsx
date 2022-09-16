@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 
 import MainLayout from "../../layouts/MainLayout";
-import { Score, Pulse } from "../../components/common/Card";
 
-import userpick from "../../public/userpick.png";
+import { Score, Pulse } from "../../components/common/Card";
+import Wallet from "../../components/common/Wallet";
 
 const Achievement = dynamic(() => import("../../components/common/Card"), {
   ssr: false,
@@ -13,7 +13,7 @@ export default function GetScrore() {
   const wallet = {
     address: "artyshatilov.eth",
     blockchain: "eth",
-    userpick: { userpick },
+    userpick: "/userpick.png",
     score: 69.69,
     age: { months: 46 },
     balance: 0.07,
@@ -42,6 +42,7 @@ export default function GetScrore() {
 };
   `}</pre>
         </section>
+
         <section className="getScore">
           <div className="container information">
             <section className="highlights">
@@ -64,7 +65,16 @@ export default function GetScrore() {
               </div>
             </section>
           </div>
-          <div className="container wallet">Yo</div>
+
+          <div className="container wallet">
+            <Wallet
+              userpick={wallet.userpick}
+              address={wallet.address}
+              balance={wallet.balance}
+              turnover={wallet.turnover}
+              age={wallet.age.years}
+            />
+          </div>
         </section>
       </div>
     </MainLayout>

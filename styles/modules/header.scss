@@ -1,0 +1,27 @@
+header {
+  padding-top: 2rem;
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  transition: background 0.2s ease-in-out, backdrop-filter 0.2s ease-in-out,
+    -webkit-backdrop-filter 0.2s ease-in-out, padding-top 0.2s ease-in-out;
+
+  section {
+    justify-content: space-between;
+  }
+
+  .logo {
+    fill: $color_title;
+  }
+
+  .underline:hover::after,
+  .underline:focus::after {
+    background: $color_callout;
+  }
+}
+
+.blurred {
+  padding-top: 0;
+  background: $color_backgroundAlpha;
+  backdrop-filter: $blurHard;
+  -webkit-backdrop-filter: $blurHard;
+}

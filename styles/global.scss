@@ -1,10 +1,18 @@
-@import './theme/dark.scss';
-@import './layout.scss';
-@import './typography.scss';
-@import './effects.scss';
-@import './scrollbar.scss';
-@import './blurredBg.scss';
-@import './card.scss';
+@import "./colors.scss";
+@import "./layout.scss";
+@import "./typography.scss";
+@import "./effects.scss";
+
+@import "./modules/header.scss";
+@import "./modules/footer.scss";
+
+@import "./modules/home.scss";
+@import "./modules/score.scss";
+
+@import "./modules/scrollbar.scss";
+@import "./modules/blurredBg.scss";
+@import "./modules/card.scss";
+@import "./modules/wallet.scss";
 
 * {
   padding: 0;
@@ -13,117 +21,22 @@
   outline: none;
 }
 
-body { background: $color_background; }
+body {
+  background: $color_background;
+}
 
 nav {
   ul {
     list-style: none;
     display: flex;
-
     $padding: 1rem;
-
-    margin: calc($padding * -.5);
-
-    li {
-      padding: calc($padding * .5);
-    }
+    gap: 1rem;
   }
-}
-
-header {
-  .section { justify-content: space-between }
-  .logo { fill: $color_title }
-  .underline:hover::after, .underline:focus::after { background: $color_callout }
-}
-
-.blurred {
-  padding-top: 0;
-  background: $color_backgroundAlpha;
-  backdrop-filter: $blurHard;
 }
 
 main {
-  .underline:hover::after, .underline:focus::after { background: $color_callout }
-}
-
-footer {
-  .logo { fill: $color_footnote }
-  .underline:hover::after, .underline:focus::after { background: $color_callout }
-
-  nav ul {
-    :first-child:before {
-      content: none;
-    }
-
-    li:before {
-      content: '•';
-      margin-right: 1rem;
-      color: $color_footnote;
-    }
+  .underline:hover::after,
+  .underline:focus::after {
+    background: $color_callout;
   }
-}
-
-.home-subheading {
-  margin: 2rem 0;
-}
-
-.home-buttons {
-  $padding: 3rem;
-  margin: calc($padding * -1);
-  margin-bottom: 2rem;
-
-  .button { margin: calc($padding * 0.5) }
-  .dapp {
-    font-weight: 600;
-    background: $color_title;
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-  }
-
-  .docs::after {
-    content: 'arrow_forward_ios';
-    font-family: 'Material Symbols Outlined';
-    font-size: .75rem;
-    margin-left: .25rem;
-  }
-
-  .dapp span {
-    background: $color_tech;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-.information {
-  padding: 1rem;
-  border-radius: $borderMedium;
-  background: $color_overlay1;
-  width: 100%;
-  
-  .container {
-    justify-content: flex-start;
-  }
-
-  .cards {
-    display: grid;
-    overflow: hidden;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 1fr;
-    grid-gap: 16px;
-    margin-top: 1rem;
-  }
-}
-
-.getScore {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 1rem;
-}
-
-.wallet {
-  display: block;
-  background: red;
-  width: 60%;
-  margin-left: 1rem;
 }

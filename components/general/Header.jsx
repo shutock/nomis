@@ -12,32 +12,30 @@ export default function Header() {
     });
   }, []);
   return (
-    <>
-      <div className="whitespace"></div>
-      <header className={scroll ? "blurred" : ""}>
-        <div className="wrapper">
-          <div className="section">
-            <div className="container fit">
-              <Link href="/">
-                <a className="margin">
-                  <Logo></Logo>
-                </a>
-              </Link>
-            </div>
-            <nav className="container fit">
-              <ul>
-                {headerMenu.map((item, idx) => (
-                  <li key={`menu item ${idx}`}>
-                    <Link href={item.link}>
-                      <a className="underline">{item.title}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+    <header className={scroll ? "blurred" : ""}>
+      <div className="wrapper">
+        <section>
+          <div className="container fit">
+            <Link href="/">
+              <a className="margin">
+                <Logo />
+              </a>
+            </Link>
           </div>
-        </div>
-      </header>
-    </>
+
+          <nav className="container fit">
+            <ul>
+              {headerMenu.map((item, idx) => (
+                <li key={`menu item ${idx}`}>
+                  <Link href={item.link}>
+                    <a className="underline">{item.title}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </header>
   );
 }

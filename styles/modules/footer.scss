@@ -1,0 +1,25 @@
+footer {
+  .container {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    fill: $color_footnote;
+  }
+  .underline:hover::after,
+  .underline:focus::after {
+    background: $color_callout;
+  }
+
+  nav ul {
+    :first-child:before {
+      content: none;
+    }
+
+    li:before {
+      content: "•";
+      margin-right: 1rem;
+      color: $color_footnote;
+    }
+  }
+}

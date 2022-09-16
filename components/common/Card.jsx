@@ -8,7 +8,7 @@ export function Score({ score = 69.69 }) {
   return (
     <div className="container card score">
       <Chart.Score score={score} />
-      <h5>Nomis Score</h5>
+      <h3>Nomis Score</h3>
       <div>
         <p>The overall Nomis score is</p>
         <p>{score}/100.00</p>
@@ -21,7 +21,7 @@ export function Pulse({ activity }) {
   return (
     <div className="container card pulse">
       <Chart.Activity activity={activity} />
-      <h5>Wallet&apos;s Pulse</h5>
+      <h3>Wallet&apos;s Pulse</h3>
       <div>
         <p>
           This is wallet&apos;s on-chain activity. You&apos;ve been quite active
@@ -39,7 +39,7 @@ export default function Achievement({ emoji, title, description }) {
       <div className="emoji">
         <Image src={src} width="64" height="64" alt="Emoji" />
       </div>
-      <h5>{title}</h5>
+      <h3>{title}</h3>
       <div>
         <p>{description}</p>
       </div>
