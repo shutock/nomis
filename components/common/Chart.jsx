@@ -68,7 +68,7 @@ export function Activity({ activity }) {
     labels,
     datasets: [
       {
-        data: [0, 2, 1, 3, 6, 2, 4, 1, 6, 8, 4, 9],
+        data: activity,
         borderColor: "#fff",
         borderRadius: "999",
         borderWidth: "4",
