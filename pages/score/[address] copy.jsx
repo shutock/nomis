@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 
 import MainLayout from "../../layouts/MainLayout";
 
@@ -9,7 +12,27 @@ const Achievement = dynamic(() => import("../../components/common/Card"), {
   ssr: false,
 });
 
-export default function Scored({ wallet }) {
+export default function Scored() {
+  const router = useRouter();
+  const { address } = router.query;
+
+  const apiPath = `/api/${address}`;
+  console.log(apiPath);
+
+  const walletDefault = dynamic(() => import(apiPath));
+
+  const [wallet, setWallet] = useState(walletDefault);
+
+  useEffect(() => {
+    fetch(apiPath)
+      .then((res) => res.json())
+      .then((wallet) => {
+        setWallet(wallet);
+      });
+  }, []);
+
+  console.log(wallet);
+
   return (
     <MainLayout title="Get Score">
       <div className="wrapper">
@@ -21,7 +44,7 @@ export default function Scored({ wallet }) {
               </div>
               <div className="container cards">
                 <Score score={wallet.score} />
-                <Pulse activity={wallet.activity} />
+                {/* <Pulse activity={wallet.activity} /> */}
                 <Achievement
                   emoji="old"
                   title="The Ancesor"
@@ -51,12 +74,4 @@ export default function Scored({ wallet }) {
       </div>
     </MainLayout>
   );
-}
-
-export async function getServerSideProps(context) {
-  const res = await fetch(
-    `https://nomis.vercel.app/api/${context.query.address}`
-  );
-  const wallet = await res.json();
-  return { props: { wallet } };
 }
