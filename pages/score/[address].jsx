@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import walletDefault from "../api/wallet.json";
 
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -14,16 +15,15 @@ const Achievement = dynamic(() => import("../../components/common/Card"), {
 
 export default function Scored() {
   const router = useRouter();
-  let { address } = router.query;
-  while (address === "[object Undefined]") [(address = router.query)];
+  const { address } = router.query;
 
-  const apiPath = `http://localhost:3000/api/${address}`;
+  const apiPath = `/api/${address}`;
   console.log(apiPath);
 
-  const [wallet, setWallet] = useState();
+  const [wallet, setWallet] = useState(walletDefault);
 
   useEffect(() => {
-    fetch(apiPath)
+    fetch("/api/artyshatilov.eth")
       .then((res) => res.json())
       .then((wallet) => {
         setWallet(wallet);
