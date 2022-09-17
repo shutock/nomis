@@ -44,7 +44,7 @@ export default function Scored({ wallet }) {
               address={wallet.address}
               balance={wallet.balance}
               turnover={wallet.turnover}
-              age={Math.round(wallet.spendings / 10) * 10}
+              age={Math.round(wallet.age / 12)}
             />
           </div>
         </section>
