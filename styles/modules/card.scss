@@ -15,6 +15,16 @@
 .score {
   background: $color_tech;
 
+  h3,
+  .number {
+    color: #fff !important;
+  }
+
+  p,
+  .number {
+    color: hsla(0, 100%, 100%, 80%);
+  }
+
   .chart {
     $size: 4rem;
     width: $size;
