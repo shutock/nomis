@@ -31,6 +31,18 @@ section {
   max-width: $maxWidth;
 }
 
+.start {
+  justify-content: flex-start;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.column.start {
+  align-items: flex-start;
+}
+
 .fit {
   width: fit-content;
 }
