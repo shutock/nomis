@@ -7,6 +7,6 @@
   "balance": 0.07,
   "turnover": 44.94,
   "spendings": 32,
-  "activity": [10, 2, 5, 3, 6, 2, 4, 1, 6, 8, 4, 9],
+  "activity": [0, 2, 5, 3, 6, 2, 4, 1, 6, 8, 4, 9],
   "recentActivity": ["Uniswap", "Rainbow", "OpenSea", "AAVE"]
 }

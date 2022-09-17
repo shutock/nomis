@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import walletDefault from "../api/wallet.json";
+import walletDefault from "../api/artyshatilov.eth.json";
 
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -23,7 +23,7 @@ export default function Scored() {
   const [wallet, setWallet] = useState(walletDefault);
 
   useEffect(() => {
-    fetch("/api/artyshatilov.eth")
+    fetch(apiPath)
       .then((res) => res.json())
       .then((wallet) => {
         setWallet(wallet);
@@ -43,7 +43,7 @@ export default function Scored() {
               </div>
               <div className="container cards">
                 <Score score={wallet.score} />
-                <Pulse activity={wallet.activity} />
+                {/* <Pulse activity={wallet.activity} /> */}
                 <Achievement
                   emoji="old"
                   title="The Ancesor"
