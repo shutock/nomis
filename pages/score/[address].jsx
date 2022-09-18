@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import MainLayout from "../../layouts/MainLayout";
 
 import Wallet from "../../components/common/Wallet";
+import Recent from "../../components/common/Recent";
 
 import { Score, Pulse } from "../../components/common/Card";
 const Achievement = dynamic(() => import("../../components/common/Card"), {
@@ -43,6 +44,7 @@ export default function Scored({ wallet }) {
                   }.`}
                 />
               </div>
+              <Recent recentActivity={wallet.recentActivity} />
             </section>
           </div>
 

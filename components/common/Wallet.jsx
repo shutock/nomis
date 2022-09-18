@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import Recent from "./Recent";
+
 export default function Wallet({
   address,
   userpick,
