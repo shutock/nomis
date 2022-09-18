@@ -16,8 +16,8 @@
 
   .cards {
     display: grid;
-    overflow: hidden;
     grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
     grid-auto-rows: 1fr;
     grid-gap: 1rem;
   }
@@ -29,8 +29,18 @@
   align-items: flex-start;
 }
 
-.wallet {
-  position: sticky;
-  top: 4.5rem;
-  width: 60%;
+@media screen and (max-width: $tablet) {
+  .getScore {
+    flex-direction: column-reverse;
+  }
+  .information,
+  .wallet {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
 }

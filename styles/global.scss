@@ -34,6 +34,14 @@ nav {
   }
 }
 
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
 main {
   .underline:hover::after,
   .underline:focus::after {

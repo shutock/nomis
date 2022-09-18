@@ -3,29 +3,23 @@
   border-radius: $borderMedium;
   backdrop-filter: $blurHard;
   -webkit-backdrop-filter: $blurHard;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem 1rem 2rem;
 }
 
 .home-subheading {
   margin: 2rem 0;
 }
 
-.home-buttons {
+.buttons {
   margin-bottom: 2rem;
   gap: 2rem;
 
   .dapp {
-    font-weight: 600;
     background: $color_title;
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
   }
 
-  .docs::after {
-    content: "arrow_forward_ios";
-    font-family: "Material Symbols Outlined";
-    font-size: 0.75rem;
-    margin-left: 0.25rem;
+  .docs {
+    background: $color_overlay1;
   }
 
   .dapp span {
@@ -33,4 +27,25 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+}
+
+.backed {
+  a {
+    padding: 1rem;
+    border-radius: $borderSmall;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+
+  a:hover {
+    background: $color_overlay1;
+    transform: translateY(-0.25rem);
+  }
+
+  a:active {
+    transform: scale(0.95);
+  }
+}
+
+.inch {
+  padding: 5px 1rem !important;
 }

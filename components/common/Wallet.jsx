@@ -1,34 +1,41 @@
 import Image from "next/image";
 
-export default function Wallet({ address, userpick, balance, turnover, age }) {
+export default function Wallet({
+  address,
+  userpick,
+  balance,
+  blockchain,
+  turnover,
+  age,
+}) {
   return (
     <>
-      <section>
+      <div className="mainInfo">
         <div className="container userpick">
           <Image src={userpick} alt="NFT userpick" width={1280} height={1280} />
         </div>
 
-        <div className="container adress">
+        <div className="container address">
           <h4>{address}</h4>
         </div>
+      </div>
 
-        <div className="container meta">
-          <div className="container balance">
-            <h5>{balance}</h5>
-            <span>Balance</span>
-          </div>
-
-          <div className="container turnover">
-            <h5>{turnover}</h5>
-            <span>Turnover</span>
-          </div>
-
-          <div className="container age">
-            <h5>{age}</h5>
-            <span>Wallet Age</span>
-          </div>
+      <div className="container meta">
+        <div className={`container ${blockchain}`}>
+          <h5>{balance}</h5>
+          <span className="footnote">Balance</span>
         </div>
-      </section>
+
+        <div className={`container ${blockchain}`}>
+          <h5>{turnover}</h5>
+          <span className="footnote">Turnover</span>
+        </div>
+
+        <div className="container age">
+          <h5>{age}</h5>
+          <span className="footnote">Wallet Age</span>
+        </div>
+      </div>
     </>
   );
 }

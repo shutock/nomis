@@ -12,12 +12,12 @@ export default function Header() {
     });
   }, []);
   return (
-    <header className={scroll ? "blurred" : ""}>
+    <header className={scroll ? "scrolled" : ""}>
       <div className="wrapper">
         <section>
           <div className="container fit">
             <Link href="/">
-              <a className="margin">
+              <a>
                 <Logo />
               </a>
             </Link>

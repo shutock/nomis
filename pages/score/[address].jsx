@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import dynamic from "next/dynamic";
 
 import MainLayout from "../../layouts/MainLayout";
@@ -10,18 +12,24 @@ const Achievement = dynamic(() => import("../../components/common/Card"), {
 });
 
 export default function Scored({ wallet }) {
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 32);
+    });
+  }, []);
   return (
     <MainLayout title="Get Score">
       <div className="wrapper">
-        <section className="getScore">
+        <section className={`getScore ${scroll ? "scrolledGetScore" : ""}`}>
           <div className="container information">
             <section className="highlights">
               <div className="container">
-                <h4>Highlights</h4>
+                <h2>Highlights</h2>
               </div>
               <div className="container cards">
-                <Score score={wallet.score} />
-                {/* <Pulse activity={wallet.activity} /> */}
+                {/* <Score score={wallet.score} /> */}
+                <Pulse activity={wallet.activity} />
                 <Achievement
                   emoji="old"
                   title="The Ancesor"
@@ -38,12 +46,13 @@ export default function Scored({ wallet }) {
             </section>
           </div>
 
-          <div className="container wallet">
+          <div className={`container wallet ${scroll ? "scrolledWallet" : ""}`}>
             <Wallet
               userpick={wallet.userpick}
               address={wallet.address}
               balance={wallet.balance}
               turnover={wallet.turnover}
+              blockchain={wallet.blockchain}
               age={Math.round(wallet.age / 12)}
             />
           </div>

@@ -1,10 +1,22 @@
 footer {
+  padding-bottom: 2rem;
+
+  .container {
+    width: 100%;
+  }
+
   .logo {
     fill: $color_footnote;
   }
   .underline:hover::after,
   .underline:focus::after {
     background: $color_callout;
+  }
+
+  li {
+    max-height: 17.91px;
+    display: flex;
+    align-items: center;
   }
 
   nav ul {
@@ -17,5 +29,17 @@ footer {
       margin-right: 1rem;
       color: $color_footnote;
     }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  footer {
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  footer {
+    padding-bottom: 0;
   }
 }
