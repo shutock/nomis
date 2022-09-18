@@ -28,8 +28,8 @@ export default function Scored({ wallet }) {
                 <h2>Highlights</h2>
               </div>
               <div className="container cards">
-                {/* <Score score={wallet.score} /> */}
-                <Pulse activity={wallet.activity} />
+                <Score score={wallet.score} />
+                {/* <Pulse activity={wallet.activity} /> */}
                 <Achievement
                   emoji="old"
                   title="The Ancesor"
