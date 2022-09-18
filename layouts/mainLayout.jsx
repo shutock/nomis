@@ -8,7 +8,6 @@ export default function MainLayout({ children, title = "Sample" }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/nomisIcon.svg" type="image/svg+xml" />
         <title>{pageTitle}</title>
         <meta property="og:title" content={pageTitle} />
         <meta property="twitter:title" content={pageTitle} />
