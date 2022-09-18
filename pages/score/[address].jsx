@@ -15,7 +15,7 @@ export default function Scored({ wallet }) {
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 32);
+      setScroll(window.scrollY > 0);
     });
   }, []);
   return (

@@ -65,6 +65,7 @@
   $duration: 0.4s;
 
   .wallet {
+    border-top: 0px solid $color_border;
     position: fixed;
     height: 309px;
     top: 108px;
@@ -75,7 +76,7 @@
     transition: height $duration ease-in-out, top $duration ease-in-out,
       left $duration ease-in-out, min-width $duration ease-in-out,
       border-radius $duration ease-in-out, background $duration ease-in-out,
-      backdrop-filter $duration ease-in-out,
+      backdrop-filter $duration ease-in-out, border $duration ease-in-out,
       -webkit-backdrop-filter $duration ease-in-out;
 
     .userpick {
@@ -114,10 +115,11 @@
     transition: margin-top $duration ease-in-out;
   }
   .scrolledGetScore {
-    margin-top: 9rem;
+    margin-top: 6rem;
   }
 
   .scrolledWallet {
+    border-top: 1px solid $color_border;
     top: 58px;
     left: 0;
     min-width: 100%;
@@ -159,11 +161,12 @@
     left: 1rem;
     right: 1rem;
     min-width: calc(100% - 2rem);
+    border-top: 0px solid $color_border;
 
     transition: height $duration ease-in-out, top $duration ease-in-out,
       left $duration ease-in-out, min-width $duration ease-in-out,
       border-radius $duration ease-in-out, background $duration ease-in-out,
-      backdrop-filter $duration ease-in-out,
+      backdrop-filter $duration ease-in-out, border $duration ease-in-out,
       -webkit-backdrop-filter $duration ease-in-out;
 
     .userpick {
@@ -199,14 +202,15 @@
     }
   }
   .getScore {
-    margin-top: 377px;
+    margin-top: 289px;
     transition: margin-top $duration ease-in-out;
   }
   .scrolledGetScore {
-    margin-top: 11rem;
+    margin-top: 3rem;
   }
 
   .scrolledWallet {
+    border-top: 1px solid $color_border;
     top: 58px;
     left: 0;
     min-width: 100%;
