@@ -157,9 +157,9 @@ export default function handler(req, res) {
     blockchain: "eth",
     userpick: "https://thispersondoesnotexist.com/image",
     score: rand(100),
-    age: rand(10),
+    age: rand(100),
     balance: rand(0.1),
-    turnover: rand(1000),
+    turnover: rand(100),
     spendings: rand(100),
     activity: [
       rand(10),
