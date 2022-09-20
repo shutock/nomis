@@ -10,9 +10,6 @@ import { Doughnut, Line } from "react-chartjs-2";
 
 export function Score({ score }) {
   ChartJS.register(ArcElement);
-  ChartJS.defaults.font = {
-    family: "Segoe UI",
-  };
   const data = {
     datasets: [
       {
@@ -95,7 +92,25 @@ export function Activity({ activity }) {
         beginAtZero: true,
       },
     },
+    plugins: {
+      datalabels: {
+        display: true,
+        formatter: (val, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+
+          const formattedVal = Intl.NumberFormat("en-US", {
+            minimumFractionDigits: 2,
+          }).format(val);
+
+          // Put them together
+          return `${label}: ${formattedVal}`;
+        },
+        color: "#fff",
+        backgroundColor: "#404040",
+      },
+    },
   };
+
   return (
     <div className="chart">
       <Line data={data} options={options} />
