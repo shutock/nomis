@@ -10,6 +10,9 @@ import { Doughnut, Line } from "react-chartjs-2";
 
 export function Score({ score }) {
   ChartJS.register(ArcElement);
+  ChartJS.defaults.font = {
+    family: "Segoe UI",
+  };
   const data = {
     datasets: [
       {
