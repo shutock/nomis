@@ -85,28 +85,9 @@ export function Activity({ activity }) {
     scales: {
       yAxes: {
         display: false,
-        beginAtZero: true,
       },
       xAxes: {
         display: false,
-        beginAtZero: true,
-      },
-    },
-    plugins: {
-      datalabels: {
-        display: true,
-        formatter: (val, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-
-          const formattedVal = Intl.NumberFormat("en-US", {
-            minimumFractionDigits: 2,
-          }).format(val);
-
-          // Put them together
-          return `${label}: ${formattedVal}`;
-        },
-        color: "#fff",
-        backgroundColor: "#404040",
       },
     },
   };
