@@ -176,5 +176,15 @@ export default function handler(req, res) {
       rand(10),
     ],
     recentActivity: apps(rand(10)),
+    totalTransactions: rand(100),
+    averageTransactionTime: rand(100),
+    transactionsPerMonth: rand(100),
+    maxTransactionTime: rand(100),
+    timeFromLastTransaction: rand(100),
+    lastMonthTransactions: rand(100),
+    nftHolding: rand(100),
+    ftWorth: rand(100),
+    tokensHolding: rand(100),
+    deployedContracts: rand(100),
   });
 }
