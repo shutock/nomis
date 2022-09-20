@@ -31,7 +31,7 @@ export default function Scored({ wallet }) {
               </div>
               <div className="container cards">
                 <Score score={wallet.score} />
-                {/* <Pulse activity={wallet.activity} /> */}
+                <Pulse activity={wallet.activity} />
                 <Achievement
                   emoji="old"
                   title="The Ancesor"

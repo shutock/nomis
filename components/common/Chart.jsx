@@ -83,11 +83,11 @@ export function Activity({ activity }) {
       padding: 0,
     },
     scales: {
-      y: {
+      yAxes: {
         display: false,
         beginAtZero: true,
       },
-      x: {
+      xAxes: {
         display: false,
         beginAtZero: true,
       },
