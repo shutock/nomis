@@ -74,6 +74,8 @@ export function Activity({ activity }) {
         borderWidth: "4",
         lineTension: 0.5,
         pointRadius: 0,
+        yAxisID: "yAxis",
+        xAxisID: "xAxis",
       },
     ],
   };
