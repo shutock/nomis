@@ -1,0 +1,50 @@
+.recent {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+
+  .recentItem,
+  .swiper-slide {
+    max-width: fit-content;
+  }
+
+  .recentItem {
+    display: block;
+    padding: 0.25rem;
+    background: $color_overlay1;
+    height: 4.5rem;
+    border-radius: 999px;
+  }
+
+  img {
+    $size: 4rem;
+    min-width: $size;
+    max-width: $size;
+    width: $size;
+    min-height: $size;
+    max-height: $size;
+    height: $size;
+    border-radius: 50%;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .scrolledWallet {
+    .recent {
+      padding: 1rem;
+      background: $color_overlay1;
+      border-radius: $borderMedium;
+    }
+  }
+}
+
+.recentSwiper {
+  width: calc(100% + 2rem);
+  margin: 0 -1rem;
+  min-height: 72px;
+}
+
+.swiperPadding {
+  margin: 0 1rem;
+}

@@ -4,8 +4,9 @@ import dynamic from "next/dynamic";
 
 import MainLayout from "../../layouts/MainLayout";
 
-import Wallet from "../../components/common/Wallet";
+import User from "../../components/common/User";
 import Recent from "../../components/common/Recent";
+import Stats from "../../components/common/Stats";
 
 import { Score, Pulse } from "../../components/common/Card";
 const Achievement = dynamic(() => import("../../components/common/Card"), {
@@ -44,12 +45,32 @@ export default function Scored({ wallet }) {
                   }.`}
                 />
               </div>
-              <Recent recentActivity={wallet.recentActivity} />
+            </section>
+            <section className="stats">
+              <div className="container">
+                <h2>Wallet Stats</h2>
+              </div>
+              <Stats
+                totalTransactions={wallet.totalTransactions}
+                averageTransactionTime={wallet.averageTransactionTime}
+                transactionsPerMonth={wallet.transactionsPerMonth}
+                balance={wallet.balance}
+                turnover={wallet.turnover}
+                age={wallet.age}
+                maxTransactionTime={wallet.maxTransactionTime}
+                timeFromLastTransaction={wallet.timeFromLastTransaction}
+                lastMonthTransactions={wallet.lastMonthTransactions}
+                nftHolding={wallet.nftHolding}
+                nftTrading={wallet.nftTrading}
+                nftWorth={wallet.nftWorth}
+                tokensHolding={wallet.tokensHolding}
+                deployedContracts={wallet.deployedContracts}
+              />
             </section>
           </div>
 
-          <div className={`container wallet ${scroll ? "scrolledWallet" : ""}`}>
-            <Wallet
+          <div className={`container wallet`}>
+            <User
               userpick={wallet.userpick}
               address={wallet.address}
               balance={wallet.balance}
@@ -57,6 +78,7 @@ export default function Scored({ wallet }) {
               blockchain={wallet.blockchain}
               age={Math.round(wallet.age / 12)}
             />
+            <Recent recentActivity={wallet.recentActivity} />
           </div>
         </section>
       </div>

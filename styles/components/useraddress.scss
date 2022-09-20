@@ -1,0 +1,46 @@
+.address {
+  flex-direction: column;
+  gap: 0;
+  transition: all 0.4s ease-in-out;
+
+  .addressUsername {
+    transition: all 0.4s ease-in-out;
+    padding: 0.5rem 1rem;
+    background: $color_overlay1;
+    cursor: pointer;
+    border-radius: $borderSmall;
+
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+
+  .addressUsername:hover {
+    background: $color_overlay2;
+    transform: translateY(-0.25rem);
+  }
+
+  .addressUsername:active {
+    background: $color_overlay3;
+    transform: scale(0.95);
+  }
+
+  .copyNotify {
+    font-size: 0.75rem;
+    opacity: 0;
+    line-height: 0;
+    transform: translateY(1.25rem);
+    color: $color_informationLight;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+}
+
+.copy {
+  .addressUsername {
+    background: $color_informationTint !important;
+    color: $color_informationLight;
+  }
+  .copyNotify {
+    transform: translateY(0.75rem);
+    opacity: 1;
+  }
+}

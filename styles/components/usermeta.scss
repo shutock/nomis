@@ -1,0 +1,19 @@
+.meta {
+  padding-top: 1rem;
+  gap: 2rem;
+  .container {
+    flex-direction: column;
+    gap: 0;
+  }
+  .balance,
+  .turnover {
+    .eth::before {
+      content: "Ξ";
+    }
+  }
+  .age {
+    h4::after {
+      content: " y";
+    }
+  }
+}

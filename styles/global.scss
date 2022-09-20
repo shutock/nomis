@@ -3,16 +3,21 @@
 @import "./typography.scss";
 @import "./effects.scss";
 
-@import "./modules/header.scss";
-@import "./modules/footer.scss";
+@import "./components/header.scss";
+@import "./components/footer.scss";
 
-@import "./modules/home.scss";
-@import "./modules/score.scss";
+@import "./pages/home.scss";
+@import "./pages/score.scss";
 
-@import "./modules/scrollbar.scss";
-@import "./modules/blurredBg.scss";
-@import "./modules/card.scss";
-@import "./modules/wallet.scss";
+@import "./components/recent.scss";
+@import "./components/scrollbar.scss";
+@import "./components/blurredBg.scss";
+@import "./components/card.scss";
+@import "./components/wallet.scss";
+@import "./components/user.scss";
+@import "./components/useraddress.scss";
+@import "./components/usermeta.scss";
+@import "./components/stats.scss";
 
 * {
   padding: 0;
@@ -53,6 +58,10 @@ main {
   gap: 0.5rem;
 }
 
-.highlights {
-  padding-bottom: 20rem;
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  width: fit-content;
 }

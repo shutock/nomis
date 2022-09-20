@@ -51,13 +51,13 @@ main {
 
 @media screen and (max-width: $tablet) {
   main {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 }
 
 @media screen and (max-width: $mobile) {
   main {
-    margin-top: 8rem;
+    margin-top: 6rem;
     padding: 0;
   }
 }

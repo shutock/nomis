@@ -1,0 +1,48 @@
+.stats {
+  flex-direction: column;
+
+  .statsData {
+    background: red;
+    padding-top: 0;
+  }
+
+  .grid {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+
+    .line,
+    .hint {
+      width: 100%;
+      padding: 0.5rem 0;
+      align-items: center;
+    }
+
+    .line {
+      border-top: 1px solid $color_border;
+    }
+
+    .value {
+      $width: 10%;
+      width: $width;
+      max-width: $width;
+      min-width: $width;
+    }
+
+    .parameter,
+    .descruption {
+      $width: 45%;
+      width: $width;
+      max-width: $width;
+      min-width: $width;
+    }
+
+    .parameter {
+      justify-content: flex-start;
+    }
+
+    .descruption {
+      justify-content: flex-end;
+    }
+  }
+}

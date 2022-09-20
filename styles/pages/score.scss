@@ -1,12 +1,7 @@
-.code {
-  display: none;
-}
-
-.information,
-.wallet {
-  padding: 1rem;
+.information {
   border-radius: $borderMedium;
   background: $color_overlay1;
+  flex-direction: column;
 }
 
 .information {
@@ -29,13 +24,14 @@
   align-items: flex-start;
 }
 
+.highlights {
+  flex-direction: column;
+  width: auto;
+}
+
 @media screen and (max-width: $tablet) {
   .getScore {
     flex-direction: column-reverse;
-  }
-  .information,
-  .wallet {
-    padding: 0;
   }
 }
 
