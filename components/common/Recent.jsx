@@ -10,7 +10,7 @@ export default function Recent({}) {
   const recentActivity = ["Nomis"];
   return (
     <div className="container recent">
-      <h2>Recently Activity</h2>
+      <h2>Recent Activity</h2>
       <div className="recentSwiper">
         <Swiper
           modules={[Pagination, Mousewheel]}
