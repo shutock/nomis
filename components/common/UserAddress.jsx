@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function UserAddress({ address }) {
+export default function UserAddress({ address, shortAddress }) {
   const [copy, setCopy] = useState("");
   const copyToClipboard = () => {
     navigator.clipboard.writeText(address);
@@ -10,7 +10,7 @@ export default function UserAddress({ address }) {
   return (
     <div className={`container address ${copy}`}>
       <h4 onClick={copyToClipboard} className="addressUsername">
-        {address}
+        {shortAddress}
       </h4>
       <span className="copyNotify">Address copied!</span>
     </div>

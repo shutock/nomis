@@ -26,6 +26,7 @@ footer {
 
 section {
   display: flex;
+  flex-direction: column;
   width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
@@ -41,6 +42,8 @@ section {
 main {
   margin-top: 2.5rem;
   padding: 4rem 0;
+  min-height: 50vh;
+  align-items: flex-start;
 }
 
 .center {

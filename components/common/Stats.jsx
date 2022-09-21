@@ -1,10 +1,11 @@
 export default function Stats({
+  isOpen,
   totalTransactions,
   averageTransactionTime,
   transactionsPerMonth,
   balance,
-  turnover,
-  age,
+  walletTurnover,
+  walletAge,
   maxTransactionTime,
   timeFromLastTransaction,
   lastMonthTransactions,
@@ -15,7 +16,7 @@ export default function Stats({
   deployedContracts,
 }) {
   return (
-    <div className="container grid">
+    <div className={`container grid ${isOpen === true ? "open" : ""}`}>
       <div className="container hint">
         <div className="callout parameter">Parameter</div>
         <div className="callout value">Value</div>
@@ -60,7 +61,7 @@ export default function Stats({
 
       <div className="container line turnover">
         <div className="caption parameter">walletTurnover</div>
-        <div className="caption value">{turnover}</div>
+        <div className="caption value">{walletTurnover}</div>
         <div className="caption description">
           <div>The movement of funds on the wallet</div>
           <span className="footnote">ETH</span>
@@ -68,8 +69,8 @@ export default function Stats({
       </div>
 
       <div className="container line age">
-        <div className="caption parameter">walletage</div>
-        <div className="caption value">{age}</div>
+        <div className="caption parameter">walletAge</div>
+        <div className="caption value">{walletAge}</div>
         <div className="caption description">
           <div>Wallet age</div>
           <span className="footnote">Months</span>

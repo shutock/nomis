@@ -20,6 +20,9 @@ export default function Scored({ wallet }) {
       setScroll(window.scrollY > 0);
     });
   }, []);
+
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
+
   return (
     <MainLayout title="Get Score">
       <div className="wrapper">
@@ -51,6 +54,7 @@ export default function Scored({ wallet }) {
                 <h2>Wallet Stats</h2>
               </div>
               <Stats
+                isOpen={isStatsVisible}
                 totalTransactions={wallet.totalTransactions}
                 averageTransactionTime={wallet.averageTransactionTime}
                 transactionsPerMonth={wallet.transactionsPerMonth}
@@ -66,6 +70,12 @@ export default function Scored({ wallet }) {
                 tokensHolding={wallet.tokensHolding}
                 deployedContracts={wallet.deployedContracts}
               />
+              <a
+                onClick={() => setIsStatsVisible(!isStatsVisible)}
+                className="button"
+              >{`${
+                isStatsVisible === true ? "Minify Stats" : "Open Stats"
+              }`}</a>
             </section>
           </div>
 

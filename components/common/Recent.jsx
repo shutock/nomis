@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/bundle";
 
-export default function Recent({ recentActivity }) {
-  const length = 3;
+export default function Recent({}) {
+  const recentActivity = ["Nomis"];
   return (
     <div className="container recent">
       <h2>Recently Activity</h2>

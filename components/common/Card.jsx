@@ -1,5 +1,8 @@
-import * as Chart from "./Chart";
 import Image from "next/image";
+
+import ChartScore from "./ChartScore";
+import ChartPulse from "./ChartPulse";
+
 import old from "../../public/emoji/old.png";
 import yung from "../../public/emoji/old.png";
 import avg from "../../public/emoji/old.png";
@@ -7,11 +10,11 @@ import avg from "../../public/emoji/old.png";
 export function Score({ score = 69.69 }) {
   return (
     <div className="container card score">
-      <Chart.Score score={score} />
+      <ChartScore score={score} />
       <h3>Nomis Score</h3>
       <div>
         <p>The overall Nomis score is</p>
-        <p>{score}/100.00</p>
+        <p>{Math.round(score * 100) / 100}/100.00</p>
       </div>
     </div>
   );
@@ -20,7 +23,7 @@ export function Score({ score = 69.69 }) {
 export function Pulse({ activity }) {
   return (
     <div className="container card pulse">
-      <Chart.Activity activity={activity} />
+      {/* <ChartPulse activity={activity} /> */}
       <h3>Wallet&apos;s Pulse</h3>
       <div>
         <p>

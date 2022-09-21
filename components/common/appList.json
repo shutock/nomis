@@ -18,5 +18,9 @@
   "UniSwap": {
     "image": "/apps/uniswap.svg",
     "link": "https://uniswap.org"
+  },
+  "Nomis": {
+    "image": "/apps/nomis.svg",
+    "link": "https://nomis.cc"
   }
 }

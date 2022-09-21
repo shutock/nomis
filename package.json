@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coreui/react-chartjs": "^2.1.0",
+    "chart": "^0.1.2",
     "chart.js": "^3.9.1",
     "next": "12.3.0",
     "react": "18.2.0",
