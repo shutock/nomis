@@ -147,7 +147,7 @@ export default function Scored({
           <section className="noWallet">
             <h2>There is no {shortAddress}</h2>
             <p>
-              We can't find {address} wallet on {blockchain} blockchain.
+              We can&apost find {address} wallet on {blockchain} blockchain.
             </p>
           </section>
         )}
