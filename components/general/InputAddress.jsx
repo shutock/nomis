@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { blockchains } from "../../maps/blockchains";
+
+import { useHotkeys } from "react-hotkeys-hook";
 
 export default function InputAddress() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +45,12 @@ export default function InputAddress() {
     }
   };
 
+  const inputRef = useRef();
+
+  useHotkeys("ctrl+/", () => {
+    inputRef.current.focus();
+  });
+
   return (
     <div className="cotainer input">
       <div className="container inputContainer">
@@ -76,6 +84,7 @@ export default function InputAddress() {
         <div className="forTablet">
           <div className="inputWrapper">
             <input
+              ref={inputRef}
               className="callout"
               type="text"
               placeholder="Put your address here, like 0x... or .eth/.sol..."
