@@ -68,6 +68,7 @@
       border-radius: calc($borderSmall - 0.5rem);
       transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
       cursor: pointer;
+      border-radius: 0;
       border-bottom: 1px solid $color_border;
       margin-bottom: 0.5rem;
 
@@ -275,4 +276,12 @@
 }
 
 @media screen and (max-width: $mobile) {
+  .forTablet {
+    flex-direction: column;
+  }
+  .input {
+    .container::before {
+      height: 14.5rem;
+    }
+  }
 }

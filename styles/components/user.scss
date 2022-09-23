@@ -23,7 +23,12 @@
 
 @media screen and (max-width: $mobile) {
   .user {
-    top: 19rem !important;
+    top: 23.5rem !important;
+  }
+  .scrolledScored {
+    .user {
+      top: 3.5rem !important;
+    }
   }
 }
 
@@ -69,7 +74,7 @@
   .scrolledScored {
     .wallet {
       margin-top: 1px;
-      min-height: 200px;
+      min-height: 0;
     }
 
     .user {
