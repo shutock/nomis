@@ -27,7 +27,7 @@ export default function InputAddress() {
 
   const router = useRouter();
 
-  const www = "https://nomis.versel.app";
+  const www = "https://nomis.vercel.app";
 
   const handleClick = (e) => {
     e.preventDefault();
