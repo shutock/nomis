@@ -7,7 +7,8 @@
 @import "./components/footer.scss";
 
 @import "./pages/home.scss";
-@import "./pages/score.scss";
+@import "./pages/scoredWallet.scss";
+@import "./pages/getScore.scss";
 
 @import "./components/recent.scss";
 @import "./components/scrollbar.scss";
@@ -18,6 +19,7 @@
 @import "./components/useraddress.scss";
 @import "./components/usermeta.scss";
 @import "./components/stats.scss";
+@import "./components/inputAddress.scss";
 
 * {
   padding: 0;

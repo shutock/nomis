@@ -1,17 +1,18 @@
 header {
   $duration: 0.4s;
 
-  z-index: 3;
+  z-index: 4;
   position: fixed;
   top: 0;
   padding-top: 2rem;
   backdrop-filter: blur(0);
   -webkit-backdrop-filter: blur(0);
+  border: 0px solid transparent;
 
   transition: background $duration ease-in-out,
     backdrop-filter $duration ease-in-out,
     -webkit-backdrop-filter $duration ease-in-out,
-    padding-top $duration ease-in-out;
+    padding-top $duration ease-in-out, border $duration ease-in-out;
 
   section {
     align-items: center;
@@ -34,4 +35,5 @@ header {
   background: $color_backgroundAlpha;
   backdrop-filter: $blurHard;
   -webkit-backdrop-filter: $blurHard;
+  border-bottom: 1px solid $color_border;
 }

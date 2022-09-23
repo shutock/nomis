@@ -8,6 +8,8 @@ import User from "../../components/common/User";
 import Recent from "../../components/common/Recent";
 import Stats from "../../components/common/Stats";
 
+import InputAddress from "../../components/general/InputAddress";
+
 import { Score, Pulse } from "../../components/common/Card";
 const Achievement = dynamic(() => import("../../components/common/Card"), {
   ssr: false,
@@ -47,10 +49,14 @@ export default function Scored({
   } else shortAddress = address;
 
   return (
-    <MainLayout title="Get Score">
+    <MainLayout title={`${shortAddress}'s Score`}>
       <div className="wrapper">
+        <section className="getScore inScored">
+          <InputAddress />
+        </section>
+
         {success === true ? (
-          <section className={`getScore ${scroll ? "scrolledGetScore" : ""}`}>
+          <section className={`scored ${scroll ? "scrolledScored" : ""}`}>
             {noData === false ? (
               <div className="container information">
                 <section className="highlights">

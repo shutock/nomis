@@ -21,12 +21,18 @@
   }
 }
 
+@media screen and (max-width: $mobile) {
+  .user {
+    top: 19rem !important;
+  }
+}
+
 @media screen and (max-width: $tablet) {
   .user {
     width: auto;
     position: absolute !important;
     height: 331.5px;
-    top: 8rem;
+    top: 19.5rem;
     left: 2rem;
     right: 2rem;
     transition: all 0.4s ease-in-out;
@@ -60,7 +66,7 @@
     }
   }
 
-  .scrolledGetScore {
+  .scrolledScored {
     .wallet {
       margin-top: 1px;
       min-height: 200px;
