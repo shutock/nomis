@@ -29,7 +29,7 @@ export default function Scored({
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 0);
+      setScroll(window.scrollY > 240);
     });
   }, []);
 
