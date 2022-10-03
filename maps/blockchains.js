@@ -39,6 +39,6 @@ export const blockchains = [
     item: "Solana",
     slug: "solana",
     icon: "/blockchains/solana.svg",
-    placeholder: "Solana address or .sol",
+    placeholder: "Address or .sol",
   },
 ];
