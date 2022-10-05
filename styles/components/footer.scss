@@ -1,45 +1,37 @@
 footer {
-  padding-bottom: 2rem;
+  section {
+    flex-direction: column;
+    line-height: 1;
+    color: $text-footnote;
 
-  .container {
-    width: 100%;
-  }
-
-  .logo {
-    fill: $color_footnote;
-  }
-  .underline:hover::after,
-  .underline:focus::after {
-    background: $color_callout;
-  }
-
-  li {
-    max-height: 17.91px;
-    display: flex;
-    align-items: center;
-  }
-
-  nav ul {
-    :first-child:before {
-      content: none;
+    .logo {
+      font-size: 2rem;
+      color: inherit;
     }
 
-    li:before {
-      content: "•";
-      margin-right: 1rem;
-      color: $color_footnote;
+    a {
+      color: inherit;
     }
-  }
-}
 
-@media screen and (max-width: $tablet) {
-  footer {
-    padding-bottom: 1rem;
-  }
-}
+    .menu {
+      display: flex;
+      gap: 1rem;
 
-@media screen and (max-width: $mobile) {
-  footer {
-    padding-bottom: 0;
+      li {
+        &::before {
+          content: "•";
+          margin-right: 1rem;
+        }
+      }
+
+      :first-child::before {
+        content: "";
+        margin-right: 0;
+      }
+    }
+
+    * {
+      width: fit-content;
+    }
   }
 }

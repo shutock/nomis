@@ -1,20 +1,23 @@
 .card {
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
+  background: $bg-overlay-1;
   padding: 1rem;
-  border-radius: $borderSmall;
-  background: $color_overlay1;
-  width: 100%;
-  height: 100%;
+  border-radius: $border-m;
 
-  h3 {
-    margin: 0 0 -0.75rem 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  span {
+    width: 64px !important;
+  }
+
+  h5 {
+    margin-top: 0.75rem;
   }
 }
 
 .score {
-  background: $color_tech;
+  background: $gradient-tech !important;
 
   h3,
   .number {
@@ -51,48 +54,16 @@
     }
 
     .number {
-      font-family: $fontFancy;
+      font-family: "Space Grotesk", sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
-      color: $color_title;
+      color: $text-title;
     }
   }
 }
 
 .pulse {
-  position: relative;
-  overflow: hidden;
-  .chart {
-    position: absolute;
-    top: 1rem;
-    left: 0rem;
-    right: 0rem;
-    max-height: 4rem;
-
-    .blur {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      filter: blur(4px);
-      opacity: 0.75;
-    }
-
-    canvas {
-      max-height: 100%;
-    }
-  }
-
-  h3 {
-    margin-top: 5rem !important;
-  }
-}
-
-.achievement {
-  .emoji {
-    $size: 4rem;
-    width: $size;
-    height: $size;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

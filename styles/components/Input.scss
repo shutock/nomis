@@ -1,0 +1,185 @@
+.Input {
+  margin: 0 1rem;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  background: $bg-overlay-1;
+  border-radius: $border-l;
+
+  .blockchains {
+    display: flex;
+    flex-direction: column;
+    background: $bg-overlay-1;
+    padding: 0.5rem 0.5rem 0.5rem 3.5rem;
+    border-radius: $border-m;
+    max-height: 4rem;
+    overflow: hidden;
+    position: absolute;
+    min-width: fit-content;
+    z-index: 2;
+    backdrop-filter: $blur-hard;
+    -webkit-backdrop-filter: $blur-hard;
+
+    transition: max-height $fast, background $fast;
+
+    &:hover {
+      background: $bg-overlay-2;
+    }
+
+    &::before {
+      content: "expand_more";
+      font-family: $font-icon;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      padding-top: 0.125rem;
+      justify-content: center;
+      border-radius: 50%;
+      line-height: 1;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      $size: 2rem;
+      width: $size;
+      height: $size - 0.125rem;
+      background: $bg-overlay-1;
+      cursor: pointer;
+
+      transition: transform $fast;
+    }
+
+    &.open {
+      max-height: 369px;
+
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+
+    .blockchain {
+      border-radius: $border-s;
+      transition: background $fast;
+
+      &:hover {
+        background: $bg-overlay-2;
+      }
+    }
+
+    .blockchainActive {
+      border-bottom: 1px solid $border-color;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 0.5rem 1rem 0.5rem;
+    }
+
+    .blockchain {
+      padding: 0.5rem 1rem 0.5rem 0.5rem;
+    }
+
+    .blockchain,
+    .blockchainActive {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+
+      img {
+        $size: 2rem;
+        width: $size;
+        height: $size;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .field {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+
+    .inputWrapper {
+      margin-left: 213px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+
+      input {
+        width: 100%;
+        padding: 1.25rem;
+        border: none;
+        font-size: calc(1.25rem - 1px);
+        font-family: $font-main;
+        border-radius: $border-m;
+        background: $bg-overlay-1;
+        border: 1px solid transparent;
+
+        transition: background $fast, border $fast;
+
+        &:hover {
+          background: $bg-overlay-2;
+        }
+
+        &:focus {
+          border: 1px solid $color-pink;
+        }
+      }
+
+      .loading {
+        position: absolute;
+        top: -50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        padding: 0.5rem;
+        border-radius: $border-s;
+        background: $information-tint;
+        color: $information-light;
+
+        transition: top $fast;
+
+        &.isLoading {
+          top: 50%;
+        }
+      }
+
+      .shortcut {
+        position: absolute;
+        top: 50%;
+        right: 0.75rem;
+        transform: translateY(-50%);
+        padding: 0.5rem;
+        border-radius: $border-s;
+        color: $text-caption;
+        border: 1px solid $border-color;
+        background: transparent;
+
+        transition: top $fast, background $fast;
+
+        &.isLoading {
+          top: 150%;
+        }
+
+        &.pressed {
+          background: $bg-overlay-1;
+        }
+      }
+    }
+
+    button {
+      min-width: fit-content;
+      border: none;
+      font-size: 1.25rem;
+      font-family: $font-main;
+      border-radius: $border-m;
+      padding: 1.25rem;
+      height: fit-content;
+      cursor: pointer;
+      background: $gradient-tech;
+      font-weight: 500;
+
+      transition: transform $fast;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}

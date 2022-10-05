@@ -1,0 +1,95 @@
+.DataTable {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 1rem;
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+
+    .parameter,
+    .description {
+      width: 40%;
+    }
+
+    .value {
+      width: 20%;
+    }
+
+    .head {
+      padding: 1rem;
+      background: $bg-overlay-1;
+      border-radius: $border-m;
+      display: flex;
+      color: $text-title;
+    }
+
+    button {
+      background: $bg-overlay-1;
+      border: none;
+      padding: 1rem 1.5rem;
+      border-radius: $border-m;
+      line-height: 1;
+      color: $text-callout;
+      font-size: 1rem;
+      width: fit-content;
+      cursor: pointer;
+      margin: auto;
+
+      transition: background $fast, transform $fast;
+
+      @media screen and (max-width: $mobile-width) {
+        width: 100%;
+      }
+
+      &:hover {
+        background: $bg-overlay-2;
+      }
+
+      &:active {
+        background: $bg-overlay-3;
+        transform: scale(0.95);
+      }
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      color: $text-caption;
+      max-height: 6rem;
+      overflow: hidden;
+
+      transition: max-height $slow;
+
+      &.isVisible {
+        max-height: 1200px;
+      }
+
+      .item {
+        align-items: center;
+        display: flex;
+        padding: 1rem 1rem;
+
+        border-bottom: 1px solid $border-color;
+
+        &:last-child {
+          border: none;
+        }
+
+        .description {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          .units {
+            color: $text-footnote;
+            font-size: $size-footnote;
+          }
+        }
+      }
+    }
+  }
+}

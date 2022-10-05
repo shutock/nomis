@@ -1,0 +1,18 @@
+@import "./Header.scss";
+@import "./Footer.scss";
+@import "./Main.scss";
+@import "./Logo.scss";
+@import "./DataTable.scss";
+@import "./WalletData.scss";
+@import "./Card.scss";
+@import "./DataCards.scss";
+@import "./ChartScore.scss";
+@import "./WalletUser.scss";
+@import "./UserAddress.scss";
+@import "./UserStats.scss";
+@import "./Input.scss";
+
+.backgroundBlur {
+  width: 100%;
+  filter: blur(0.5rem);
+}

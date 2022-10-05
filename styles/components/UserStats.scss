@@ -1,0 +1,64 @@
+@media screen and (max-width: $mobile-width) {
+  .mobile {
+    div {
+      font-size: 0.75rem;
+
+      span {
+        font-size: 0.5rem;
+      }
+    }
+  }
+}
+.UserStats {
+  display: flex;
+  gap: 1rem;
+
+  div {
+    font-weight: 600;
+    text-align: center;
+  }
+
+  span {
+    font-weight: 400;
+    display: block;
+    font-size: 0.75rem;
+    color: $text-footnote;
+  }
+
+  div::before {
+    font-weight: 400;
+  }
+
+  .turnover {
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    padding: 0 1rem;
+  }
+
+  .mo::after {
+    content: " months";
+    font-weight: 400;
+  }
+
+  .aeternity::before {
+    content: "AE ";
+  }
+  .binance::before {
+    content: "BNB ";
+  }
+  .ethereum::before {
+    content: "ETH ";
+  }
+  .evmos::before {
+    content: "EVMOS ";
+  }
+  .polygon::before {
+    content: "MATIC ";
+  }
+  .ripple::before {
+    content: "XRP ";
+  }
+  .solana::before {
+    content: "SOL ";
+  }
+}

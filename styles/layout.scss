@@ -1,66 +1,35 @@
-$maxWidth: 1400px;
-$mobile: 550px;
-$tablet: 960px;
+$max-width: 1440px;
+$mobile-width: 600px;
 
-$borderSmall: 0.75rem;
-$borderMedium: calc($borderSmall + 1rem);
-$borderLarge: calc($borderSmall + 2rem);
-$borderXLarge: calc($borderSmall + 3rem);
+body {
+  background: $bg-main;
+}
 
 header,
 main,
 footer {
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
+header,
+footer {
+  align-items: center;
+}
+
 .wrapper {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  max-width: $maxWidth;
-  gap: 1rem;
+  max-width: $max-width;
 }
 
 section {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  flex-wrap: wrap;
-  gap: 1rem;
   padding: 1rem;
-}
-
-.container {
-  display: flex;
   gap: 1rem;
-  align-items: center;
 }
 
 main {
-  margin-top: 2.5rem;
-  padding: 4rem 0;
-  min-height: 50vh;
+  min-height: 60vh;
   align-items: flex-start;
-}
-
-.center {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-@media screen and (max-width: $tablet) {
-  main {
-    padding: 4rem 0;
-  }
-}
-
-@media screen and (max-width: $mobile) {
-  main {
-    margin-top: 6rem;
-    padding: 0;
-  }
 }

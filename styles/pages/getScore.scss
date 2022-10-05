@@ -1,3 +1,15 @@
-.getScore {
+.GetScore {
+  display: flex;
+  flex-direction: column !important;
   gap: 2rem;
+
+  .Input {
+    margin: 0;
+  }
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

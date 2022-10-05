@@ -1,51 +1,89 @@
-.overlay {
-  background: $color_overlay1;
-  border-radius: $borderMedium;
-  backdrop-filter: $blurHard;
-  -webkit-backdrop-filter: $blurHard;
-  padding: 1rem 1rem 1rem 2rem;
+.backgroundBlur {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 10vw;
+  right: 10vw;
+  width: 80vw;
 }
 
-.home-subheading {
-  margin: 2rem 0;
-}
+.Home {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 
-.buttons {
-  margin-bottom: 2rem;
-  gap: 2rem;
-
-  .dapp {
-    background: $color_title;
+  .title {
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      text-shadow: 0 0 1rem hsla(0, 0, 100, 0.6);
+    }
   }
 
-  .docs {
-    background: $color_overlay1;
+  .buttons {
+    justify-content: center;
+
+    button {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: $border-m;
+      font-size: 1.25rem;
+      font-weight: 500;
+      font-family: $font-main;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform $fast;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    .dapp {
+      background: $text-title;
+
+      span {
+        background: $gradient-tech;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .docs {
+      background: $bg-main;
+      color: $text-title;
+    }
   }
 
-  .dapp span {
-    background: $color_tech;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
+  .backed {
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    background: hsla(0, 0, 0, 0.6);
+    width: fit-content;
+    margin: auto;
+    align-items: center;
+    backdrop-filter: $blur-hard;
+    -webkit-backdrop-filter: $blur-hard;
+    border-radius: $border-m;
+    box-shadow: 0 1rem 2rem hsla(0, 0, 0, 0.1);
+    gap: 0;
 
-.backed {
-  a {
-    padding: 1rem;
-    border-radius: $borderSmall;
-    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
-  }
+    p {
+      margin-right: 1rem;
+      background: transparent;
+    }
 
-  a:hover {
-    background: $color_overlay1;
-    transform: translateY(-0.25rem);
-  }
+    a {
+      padding: 0.75rem 1rem;
+      border-radius: $border-s;
+      transition: background $fast;
 
-  a:active {
-    transform: scale(0.95);
-  }
-}
+      &:hover {
+        background: $bg-overlay-2;
+      }
+    }
 
-.inch {
-  padding: 5px 1rem !important;
+    .inch {
+      padding: 1px 1rem;
+    }
+  }
 }

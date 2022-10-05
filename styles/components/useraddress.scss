@@ -1,46 +1,78 @@
-.address {
-  flex-direction: column;
-  gap: 0;
-  transition: all 0.4s ease-in-out;
+.UserAddress {
+  position: relative;
+  line-height: 1;
+  width: 100%;
 
-  .addressUsername {
-    transition: all 0.4s ease-in-out;
+  h4 {
     padding: 0.5rem 1rem;
-    background: $color_overlay1;
+    background: $bg-overlay-1;
+    border-radius: $border-s;
+    width: fit-content;
     cursor: pointer;
-    border-radius: $borderSmall;
+    margin: auto;
 
-    transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
-      transform 0.2s ease-in-out;
+    transition: background $fast, transform $fast, color $fast;
+
+    &:hover {
+      background: $bg-overlay-2;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
   }
 
-  .addressUsername:hover {
-    background: $color_overlay2;
-    transform: translateY(-0.25rem);
-  }
-
-  .addressUsername:active {
-    background: $color_overlay3;
-    transform: scale(0.95);
-  }
-
-  .copyNotify {
+  .notify {
     font-size: 0.75rem;
+    color: $text-footnote;
     opacity: 0;
-    line-height: 0;
-    transform: translateY(1.25rem);
-    color: $color_informationLight;
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    position: absolute;
+    bottom: -1.25rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: $information-light;
+
+    transition: opacity $fast, bottom $fast;
+  }
+
+  &.copied {
+    .notify {
+      opacity: 1;
+      bottom: -1rem;
+    }
+
+    h4 {
+      background: $information-tint;
+      color: $information-light;
+    }
   }
 }
 
-.copy {
-  .addressUsername {
-    background: $color_informationTint !important;
-    color: $color_informationLight;
+.mobile {
+  .bio {
+    gap: 1rem;
   }
-  .copyNotify {
-    transform: translateY(0.75rem);
-    opacity: 1;
+  .meta {
+    gap: 0.5rem;
+    align-items: flex-start;
+
+    .UserAddress {
+      width: fit-content;
+
+      h4 {
+        padding: 0;
+        background: none;
+        font-size: 1rem;
+      }
+
+      .notify {
+        bottom: 50%;
+        right: 0;
+        transform: translate(calc(100% + 0.5rem), 50%);
+        white-space: nowrap;
+        width: fit-content;
+      }
+    }
   }
 }

@@ -1,0 +1,23 @@
+@import "./typography.scss";
+@import "./themes.scss";
+@import "./colors.scss";
+@import "./layout.scss";
+@import "./effects.scss";
+
+@import "./components/index.scss";
+@import "./pages/index.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  color: $text-body;
+}

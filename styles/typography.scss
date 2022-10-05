@@ -1,296 +1,64 @@
-@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap";
-@import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap";
+@import "./colors.scss";
 
-@font-face {
-  font-family: "Material Symbols Rounded";
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v56/syl0-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvDmUSVOK7BDB_Qb9vUSzq3wzLK-P0J-V_Zs-QtQth3-jOcbTCVpeRL2w5rwZu2rIelXxc.woff2)
-    format("woff2");
-}
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"; //Inter
+@import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"; //Space Grotesk
+@import "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"; // Symbols
 
-$fontMain: "Inter", sans-serif;
-$fontFancy: "Space Grotesk", sans-serif;
-$fontIcon: "Material Symbols Rounded";
+$font-main: "Inter", sans-serif;
+$font-fancy: "Space Grotesk", sans-serif;
+$font-icon: "Material Symbols Outlined";
 
-$fontSize: 16px;
+$size-body: 1rem;
+$size-footnote: 0.75rem;
 
-h1,
-.pageTitle {
-  text-shadow: 0 0 0.2em $color_highlight;
-}
-
-h1,
-.pageTitle {
-  font-family: $fontFancy;
-}
-h2,
-.bigTitle,
-h3,
-.mediumTitle,
-h4,
-.smallTitle,
-h5,
-.headline,
-h6,
-.subHeadline {
-  font-family: $fontMain;
-}
-
-h1,
-.pageTitle {
-  line-height: 1;
-}
-h2,
-.bigTitle,
-h3,
-.mediumTitle,
-h4,
-.smallTitle,
-h5,
-.headline,
-h6,
-.subHeadline {
-  line-height: 1.2;
-}
-
-h1,
-.pageTitle,
-h2,
-.bigTitle,
-h3,
-.mediumTitle,
-h4,
-.smallTitle,
-h5,
-.headline,
-h6,
-.subHeadline {
-  letter-spacing: -0.05em;
-  display: block;
-  width: fit-content;
-}
-
-h1,
-.pageTitle,
-h2,
-.bigTitle,
-h3,
-.mediumTitle,
-h4,
-.smallTitle,
-h5,
-.headline {
-  color: $color_title;
-}
-
-h6,
-.subHeadline {
-  color: $color_footnote;
-}
-
-article,
-.article {
-  h2,
-  .bigTitle,
-  h3,
-  .mediumTitle,
-  h4,
-  .smallTitle,
-  h5,
-  .headline {
-    margin: 0;
-  }
-  h6,
-  .subHeadline {
-    margin: 0 0 0.25rem 0;
-  }
-}
-
-h1,
-.pageTitle {
-  font-weight: 500;
-}
-h2,
-.bigTitle,
-h3,
-.mediumTitle,
-h4,
-.smallTitle,
-h5,
-.headline {
-  font-weight: 600;
-}
-h6 {
-  font-weight: 500;
-}
-
-h1,
-.pageTitle {
-  font-size: 5rem;
-}
-h2,
-.bigTitle {
-  font-size: 2rem;
-}
-h3,
-.mediumTitle {
-  font-size: 1.75rem;
-}
-h4,
-.smallTitle {
-  font-size: 1.5rem;
-}
-h5,
-.headline {
-  font-size: 1.25rem;
-}
-h6,
-.subHeadline {
-  font-size: 0.75rem;
-}
-
-@media screen and (max-width: $mobile) {
-  h1,
-  .pageTitle {
-    font-size: 3rem;
-  }
-  h2,
-  .bigTitle {
-    font-size: 2rem;
-  }
-  h3,
-  .mediumTitle {
-    font-size: 1.75rem;
-  }
-  h4,
-  .smallTitle {
-    font-size: 1.5rem;
-  }
-  h5,
-  .headline {
-    font-size: 1.25rem;
-  }
-  h6,
-  .subHeadline {
-    font-size: 0.75rem;
-  }
-}
-
-h6,
-.subHeadline {
-  text-transform: uppercase;
-}
-
-html,
-body,
-.body,
-p {
-  font-family: $fontMain;
-  font-size: $fontSize;
-  font-weight: 400;
-  line-height: 1.3em;
-  letter-spacing: -0.04em;
-  color: $color_base;
-}
-
-.callout {
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1.3em;
-  letter-spacing: -0.04em;
-  color: $color_callout;
-}
-
-.caption {
-  font-size: 0.75rem;
-  font-weight: 400;
-  line-height: 1.4em;
-  letter-spacing: -0.03em;
-  color: $color_caption;
-}
-
-.footnote {
-  font-size: 0.8rem;
-  font-weight: 400;
-  line-height: 1.4em;
-  letter-spacing: -0.03em;
-  color: $color_footnote;
+html {
+  font-family: $font-main;
 }
 
 a {
-  position: relative;
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  color: $text-callout;
 }
 
-.button {
-  display: inline-block;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $text-title;
+  letter-spacing: -0.04em;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-main;
   font-weight: 500;
-  padding: 0.5rem 1.25rem;
-  background: $color_pink;
-  border-radius: 0.75rem;
-  color: #ffffff;
-
-  transition: transform 0.2s ease-in-out;
 }
 
-.button.big {
+h1 {
+  font-family: $font-fancy;
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
   font-size: 1.25rem;
-  padding: 1rem 2rem;
+}
+h5 {
+  font-size: 1rem;
 }
 
-.button:hover {
-  transform: translateY(-0.25rem);
-}
-
-.button:active {
-  transform: scale(0.95);
-}
-
-a {
-  line-height: 1;
-}
-
-a:hover,
-a:focus {
-  color: $color_callout;
-}
-
-.underline::after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 1px;
-  width: 0;
-  left: 0;
-  bottom: -0.25em;
-  background: transparent;
-  transform: translateX(-0.25em);
-  transition: width 0.2s ease-in-out, background 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
-}
-
-.underline:hover::after,
-.underline:focus::after {
-  width: 100%;
-  transform: translateX(0);
-  transition: width 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.icon {
-  font-family: $fontIcon;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
+h6 {
+  font-size: 0.75rem;
+  text-transform: capitalize;
 }

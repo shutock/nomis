@@ -1,161 +1,58 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
-import dynamic from "next/dynamic";
+import MainLayout from "../../layouts/Main";
 
-import MainLayout from "../../layouts/MainLayout";
+import Input from "../../components/global/Input";
 
-import User from "../../components/common/User";
-import Recent from "../../components/common/Recent";
-import Stats from "../../components/common/Stats";
+import WalletData from "../../components/WalletData";
+import WalletUser from "../../components/WalletUser";
 
-import InputAddress from "../../components/general/InputAddress";
-
-import { Score, Pulse } from "../../components/common/Card";
-const Achievement = dynamic(() => import("../../components/common/Card"), {
-  ssr: false,
-});
-
-export default function Scored({
-  score,
-  stats,
-  success,
-  blockchain,
-  address,
-  exception,
-  supportMessage,
-  noData,
-  badGateway,
-}) {
-  const [scroll, setScroll] = useState(false);
-  useEffect(() => {
+export default function Home({ success, blockchain, fullAddress, wallet }) {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  React.useEffect(() => {
     window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 240);
+      setIsScrolled(window.scrollY > 384);
     });
   }, []);
 
-  const [isStatsVisible, setIsStatsVisible] = useState(false);
-
-  let shortAddress;
-
-  if (address.length > 16) {
-    shortAddress =
-      address[0] +
-      address[1] +
-      address[2] +
-      "..." +
-      address[address.length - 3] +
-      address[address.length - 2] +
-      address[address.length - 1];
-  } else shortAddress = address;
-
+  const address =
+    fullAddress.length > 16
+      ? fullAddress[0] +
+        fullAddress[1] +
+        fullAddress[2] +
+        "• • •" +
+        fullAddress[fullAddress.length - 3] +
+        fullAddress[fullAddress.length - 2] +
+        fullAddress[fullAddress.length - 1]
+      : fullAddress;
   return (
-    <MainLayout title={`${shortAddress}'s Score`}>
+    <MainLayout title={`${address}`}>
       <div className="wrapper">
-        <section className="getScore inScored">
-          <InputAddress />
-        </section>
-
-        {success === true ? (
-          <section className={`scored ${scroll ? "scrolledScored" : ""}`}>
-            {noData === false ? (
-              <div className="container information">
-                <section className="highlights">
-                  <div className="container">
-                    <h2>Highlights</h2>
-                  </div>
-                  <div className="container cards">
-                    <Score score={score} />
-                    <Pulse />
-                    <Achievement
-                      emoji="old"
-                      title="The Ancesor"
-                      description="You have a pretty old wallet—more than 4 years since the first transaction."
-                    />
-                    <Achievement
-                      emoji="old"
-                      title="Big Spender"
-                      description={`This wallet has a total spendings of more than Ξ${
-                        Math.round(
-                          (stats.walletTurnover - stats.balance) / 10
-                        ) * 10
-                      }.`}
-                    />
-                  </div>
-                </section>
-                <section className="stats">
-                  <div className="container">
-                    <h2>Wallet Stats</h2>
-                  </div>
-                  <Stats
-                    isOpen={isStatsVisible}
-                    totalTransactions={
-                      Math.round(stats.totalTransactions * 100) / 100
-                    }
-                    averageTransactionTime={
-                      Math.round(stats.averageTransactionTime * 100) / 100
-                    }
-                    transactionsPerMonth={
-                      Math.round(stats.transactionsPerMonth * 100) / 100
-                    }
-                    balance={Math.round(stats.balance * 100) / 100}
-                    walletTurnover={
-                      Math.round(stats.walletTurnover * 100) / 100
-                    }
-                    walletAge={Math.round(stats.walletAge * 100) / 100}
-                    maxTransactionTime={
-                      Math.round(stats.maxTransactionTime * 100) / 100
-                    }
-                    timeFromLastTransaction={
-                      Math.round(stats.timeFromLastTransaction * 100) / 100
-                    }
-                    lastMonthTransactions={
-                      Math.round(stats.lastMonthTransactions * 100) / 100
-                    }
-                    nftHolding={Math.round(stats.nftHolding * 100) / 100}
-                    nftTrading={Math.round(stats.nftTrading * 100) / 100}
-                    nftWorth={Math.round(stats.nftWorth * 100) / 100}
-                    tokensHolding={Math.round(stats.tokensHolding * 100) / 100}
-                    deployedContracts={
-                      Math.round(stats.deployedContracts * 100) / 100
-                    }
-                  />
-                  <a
-                    onClick={() => setIsStatsVisible(!isStatsVisible)}
-                    className="button"
-                  >{`${
-                    isStatsVisible === true ? "Minify Stats" : "Open Stats"
-                  }`}</a>
-                </section>
-              </div>
-            ) : (
-              <div className="container inactive information">
-                <section className="highlights">
-                  <h2>Wallet is Inactive</h2>
-                  <p>This wallet has no data to show.</p>
-                </section>
-              </div>
-            )}
-
-            <div className={`container wallet`}>
-              <User
-                address={address}
-                shortAddress={shortAddress}
-                balance={Math.round(stats.balance * 100) / 100}
-                turnover={Math.round(stats.walletTurnover * 100) / 100}
+        <Input blockchain={blockchain} fullAddress={fullAddress} />
+        {success ? (
+          <div className="scored">
+            <WalletData
+              wallet={wallet}
+              blockchain={blockchain}
+              fullAddress={fullAddress}
+            />
+            <WalletUser
+              wallet={wallet}
+              blockchain={blockchain}
+              address={address}
+              fullAddress={fullAddress}
+            />
+            <div className={`mobile ${isScrolled ? "isScrolled" : ""}`}>
+              <WalletUser
+                wallet={wallet}
                 blockchain={blockchain}
-                age={Math.round(stats.walletAge / 365)}
+                address={address}
+                fullAddress={fullAddress}
               />
-
-              <Recent />
             </div>
-          </section>
+          </div>
         ) : (
-          <section className="noWallet">
-            <h2>There is no {shortAddress}</h2>
-            <p>
-              We can&apost find {address} wallet on {blockchain} blockchain.
-            </p>
-          </section>
+          <section className="error">Error</section>
         )}
       </div>
     </MainLayout>
@@ -163,39 +60,16 @@ export default function Scored({
 }
 
 export async function getServerSideProps(context) {
-  const blockchain = context.query.wallet[0];
-  const address = context.query.wallet[1];
+  const blockchain = await context.query.wallet[0];
+  const fullAddress = await context.query.wallet[1];
 
   const res = await fetch(
-    `https://api.nomis.cc/api/v1/${blockchain}/wallet/${address}/score`
+    `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
   );
 
-  const data = await res.json();
-  const success = data.succeeded;
+  const json = await res.json();
+  const success = json.succeeded;
+  const wallet = json.data;
 
-  if (success === true) {
-    const wallet = data.data;
-    const Data = !wallet.noData;
-    const score = wallet.score * 100;
-
-    if (Data === true) {
-      const stats = wallet.stats;
-      const noData = false;
-
-      return {
-        props: { score, stats, success, blockchain, address, noData },
-      };
-    } else {
-      const noData = true;
-
-      return { props: { score, success, blockchain, address, noData } };
-    }
-  } else {
-    const exception = data.exception;
-    const supportMessage = data.supportMessage;
-
-    return {
-      props: { success, exception, supportMessage, address, blockchain },
-    };
-  }
+  return { props: { success, blockchain, fullAddress, wallet } };
 }
