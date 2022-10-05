@@ -1,6 +1,6 @@
 import { ThemeProvider } from "next-themes";
 import { createContext, useState } from "react";
-import "../styles/_index.scss";
+import "../styles/index.scss";
 
 export const WalletContext = createContext();
 
