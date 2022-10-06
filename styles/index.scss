@@ -1,11 +1,11 @@
-@import "typography.scss";
-@import "themes.scss";
-@import "colors.scss";
-@import "layout.scss";
-@import "effects.scss";
+@import "../styles/typography.scss";
+@import "../styles/themes.scss";
+@import "../styles/colors.scss";
+@import "../styles/layout.scss";
+@import "../styles/effects.scss";
 
-@import "components/index.scss";
-@import "pages/index.scss";
+@import "../styles/components/index.scss";
+@import "../styles/pages/index.scss";
 
 * {
   padding: 0;
