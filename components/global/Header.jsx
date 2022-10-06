@@ -22,7 +22,7 @@ export default function Header() {
             <Logo />
           </div>
           <nav className="right">
-            <ToggleTheme />
+            {/* <ToggleTheme /> */}
             <ul className="mainMenu">
               {mainMenu.map((item) => (
                 <li key={item.title}>

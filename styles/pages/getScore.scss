@@ -13,3 +13,14 @@
     gap: 1rem;
   }
 }
+
+.error {
+  padding: 2rem 1rem;
+  margin: 1rem;
+  width: auto;
+  border-radius: $border-l;
+  background: $bg-overlay-1;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}

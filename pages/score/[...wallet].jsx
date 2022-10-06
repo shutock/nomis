@@ -52,7 +52,13 @@ export default function Home({ success, blockchain, fullAddress, wallet }) {
             </div>
           </div>
         ) : (
-          <section className="error">Error</section>
+          <section className="error">
+            <h2>There is no {address}</h2>
+            <p>
+              We can't find {fullAddress} on {blockchain} blockchain. Try
+              another wallet or contact us.
+            </p>
+          </section>
         )}
       </div>
     </MainLayout>
