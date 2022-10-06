@@ -40,7 +40,7 @@ export default function Turnover({ wallet }) {
         {turnover > 0
           ? "This wallet has a total spendings of more than " +
             Math.trunc(turnover / 10) * 10 +
-            "."
+            " native coins."
           : "This wallet has no transactions."}
       </p>
     </div>
