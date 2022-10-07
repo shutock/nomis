@@ -46,7 +46,7 @@ export default function Input({ fullAddress, blockchain }) {
 
   const router = useRouter();
 
-  const www = "http://localhost:3000";
+  const www = "https://nomis.vercel.app";
 
   const handleClick = (e) => {
     e.preventDefault();
