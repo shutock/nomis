@@ -1,10 +1,11 @@
 .backgroundBlur {
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 10vw;
-  right: 10vw;
-  width: 80vw;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+  width: 100vh;
 }
 
 .Home {
@@ -57,7 +58,8 @@
 
   .backed {
     padding: 0.5rem 0.5rem 0.5rem 2rem;
-    background: hsla(0, 0, 0, 0.6);
+    // background: hsla(0, 0, 0, 0.6);
+    background: $bg-overlay-1;
     width: fit-content;
     margin: auto;
     align-items: center;
@@ -66,6 +68,17 @@
     border-radius: $border-m;
     box-shadow: 0 1rem 2rem hsla(0, 0, 0, 0.1);
     gap: 0;
+
+    @media screen and (max-width: $mobile-width) {
+      // flex-direction: column;
+      width: calc(100% - 2rem);
+      flex-wrap: wrap;
+      p {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+      }
+    }
 
     p {
       margin-right: 1rem;
@@ -86,4 +99,8 @@
       padding: 1px 1rem;
     }
   }
+}
+
+body {
+  overflow-x: hidden;
 }

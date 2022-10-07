@@ -19,7 +19,7 @@ export default function Home() {
         <section className="title">
           <h1>Wallet Scoring and Credentials Protocol</h1>
           <h2>
-            The infrastructure for data-based personalized wev3 experiences
+            The infrastructure for data-based personalized web3 experiences
           </h2>
         </section>
         <section className="buttons">
