@@ -1,4 +1,5 @@
 @import "./colors.scss";
+@import "./layout.scss";
 
 @import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"; //Inter
 @import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"; //Space Grotesk
@@ -44,6 +45,10 @@ h1 {
   font-family: $font-fancy;
   font-weight: 500;
   font-size: 4rem;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 3rem;
+  }
 }
 
 h2 {

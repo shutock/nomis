@@ -1,8 +1,15 @@
 footer {
+  @media screen and (max-width: $mobile-width) {
+    font-size: 0.75rem;
+  }
   section {
     flex-direction: column;
     line-height: 1;
     color: $text-footnote;
+
+    p {
+      line-height: 1.25;
+    }
 
     .logo {
       font-size: 2rem;
