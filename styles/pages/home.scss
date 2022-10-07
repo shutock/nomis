@@ -79,13 +79,20 @@
 
     @media screen and (max-width: $mobile-width) {
       padding: 0.5rem;
-      flex-direction: column;
+      // flex-direction: column;
       width: calc(100% - 2rem);
       flex-wrap: wrap;
       p {
         width: 100%;
         text-align: center;
         padding: 1rem;
+      }
+
+      a {
+        width: calc(100% / 3);
+        img {
+          width: 100%;
+        }
       }
     }
 
