@@ -74,8 +74,8 @@ export async function getServerSideProps(context) {
   );
 
   const json = await res.json();
-  const success = json.succeeded;
-  const wallet = json.data;
+  const success = await json.succeeded;
+  const wallet = await json.data;
 
   return { props: { success, blockchain, fullAddress, wallet } };
 }
