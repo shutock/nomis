@@ -55,16 +55,14 @@ export default function Input({ fullAddress, blockchain }) {
 
   const router = useRouter();
 
-  const www = "https://nomis.cc";
+  const www = "http://localhost:3000";
 
   const handleClick = async () => {
-    // console.log("Click " + address);
     await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
   };
 
   const handleEnter = async (e) => {
     if (e.keyCode === 13) {
-      // await e.preventDefault();
       console.log("Enter " + address);
       await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
     }
@@ -77,7 +75,7 @@ export default function Input({ fullAddress, blockchain }) {
     setTimeout(() => setPressed(false), 500);
     setPressed(true);
   });
-  // console.log(address);
+
   return (
     <div className="Input">
       <ul

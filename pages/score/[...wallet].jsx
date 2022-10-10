@@ -7,7 +7,54 @@ import Input from "../../components/global/Input";
 import WalletData from "../../components/WalletData";
 import WalletUser from "../../components/WalletUser";
 
-export default function Home({ success, blockchain, fullAddress, wallet }) {
+export async function getServerSideProps(context) {
+  const blockchain = await context.query.wallet[0];
+  const fullAddress = await context.query.wallet[1];
+
+  return { props: { blockchain, fullAddress } };
+}
+
+// export async function getWalletData({ blockchain, fullAddress }) {
+//   const res = await fetch(
+//     `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
+//   );
+//   const { json } = await res.json();
+//   return json;
+// }
+
+export default function Scored({ blockchain, fullAddress }) {
+  const [wallet, setWallet] = React.useState(null);
+  const [success, setSuccess] = React.useState(null);
+  const [loading, setLoading] = React.useState(null);
+  const [error, setError] = React.useState(null);
+
+  // React.useEffect(() => {
+  //   fetch(
+  //     `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
+  //     { mode: "no-cors" }
+  //   ).then((response) => {
+  //     const json = response.json();
+  //     console.log(response);
+  //     setWallet(json.data);
+  //     setSuccess(json.succeeded);
+  //   });
+  // }, []);
+
+  React.useEffect(() => {
+    async function getData() {
+      setLoading(true);
+      const response = await fetch(
+        `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
+        { method: "no-cors" }
+      );
+      setWallet(await response.json());
+      setLoading(false);
+      setSuccess(wallet.succeeded);
+      console.log(wallet);
+    }
+    getData();
+  }, []);
+
   const [isScrolled, setIsScrolled] = React.useState(false);
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -29,7 +76,12 @@ export default function Home({ success, blockchain, fullAddress, wallet }) {
     <MainLayout title={`${address}`}>
       <div className="wrapper">
         <Input blockchain={blockchain} fullAddress={fullAddress} />
-        {success ? (
+        {loading ? (
+          <section className="error">
+            <h2>Please wait</h2>
+            <p>Our calculations are not that fast. Give us a minute</p>
+          </section>
+        ) : success ? (
           <div className="scored">
             <WalletData
               wallet={wallet}
@@ -37,14 +89,14 @@ export default function Home({ success, blockchain, fullAddress, wallet }) {
               fullAddress={fullAddress}
             />
             <WalletUser
-              wallet={wallet}
+              wallet={{ wallet }}
               blockchain={blockchain}
               address={address}
               fullAddress={fullAddress}
             />
             <div className={`mobile ${isScrolled ? "isScrolled" : ""}`}>
               <WalletUser
-                wallet={wallet}
+                wallet={{ wallet }}
                 blockchain={blockchain}
                 address={address}
                 fullAddress={fullAddress}
@@ -63,33 +115,4 @@ export default function Home({ success, blockchain, fullAddress, wallet }) {
       </div>
     </MainLayout>
   );
-}
-
-export async function getServerSideProps(context) {
-  const blockchain = await context.query.wallet[0];
-  const fullAddress = await context.query.wallet[1];
-
-  async function fetchWithTimeout(resource, options = {}) {
-    const { timeout = 120000 } = options;
-
-    const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), timeout);
-    const response = await fetch(resource, {
-      ...options,
-      signal: controller.signal,
-    });
-    clearTimeout(id);
-    return response;
-  }
-
-  const res = await fetchWithTimeout(
-    `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
-    { timeout: 120000 }
-  );
-
-  const json = await res.json();
-  const success = await json.succeeded;
-  const wallet = await json.data;
-
-  return { props: { success, blockchain, fullAddress, wallet } };
 }

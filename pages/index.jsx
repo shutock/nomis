@@ -12,9 +12,9 @@ import gradient from "../utilities/gradient.json";
 export default function Home() {
   return (
     <MainLayout title="Home">
-      <div className="backgroundBlur">
+      {/* <div className="backgroundBlur">
         <Lottie animationData={gradient} loop={true} />
-      </div>
+      </div> */}
       <div className="wrapper Home">
         <section className="title">
           <h1>Wallet Scoring and Credentials Protocol</h1>
@@ -46,7 +46,7 @@ export default function Home() {
               <Image src={solanaLogo} alt="Solana"></Image>
             </a>
           </Link>
-          <Link href='https://1inch.org/?utm_source="nomis.cc"'>
+          <Link href='https://1inch.io/?utm_source="nomis.cc"'>
             <a className="inch">
               <Image src={inchLogo} alt="1inch"></Image>
             </a>

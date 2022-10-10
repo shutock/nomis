@@ -26,12 +26,19 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  margin: 6rem 0;
+  @media screen and (max-width: $mobile-width) {
+    margin: 2rem 0;
+  }
 
   .title {
-    margin-top: 3rem;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+    text-align: center;
+    @media screen and (max-width: $mobile-width) {
+      text-align: initial;
+    }
 
     h1 {
       text-shadow: 0 0 1rem hsla(0, 0, 100, 0.6);
