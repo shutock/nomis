@@ -166,6 +166,10 @@
 
         transition: top $fast, background $fast;
 
+        @media screen and (max-width: $mobile-width) {
+          display: none;
+        }
+
         &.isLoading {
           top: 150%;
         }

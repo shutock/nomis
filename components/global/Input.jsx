@@ -1,7 +1,5 @@
-import { useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
-
-import { useEffect, useRef } from "react";
 
 import { blockchains } from "../../utilities/blockchains";
 
@@ -30,16 +28,16 @@ export default function Input({ fullAddress, blockchain }) {
       ? "8"
       : initialInput;
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState(activeBlockchain);
-  const [address, setAddress] = useState(fullAddress ? fullAddress : "");
-  const [isLoading, setIsLoading] = useState(false);
-  const [placeholder, setPlaceholder] = useState(
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [active, setActive] = React.useState(activeBlockchain);
+  const [address, setAddress] = React.useState(fullAddress ? fullAddress : "");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [placeholder, setPlaceholder] = React.useState(
     blockchains[initialInput].placeholder
   );
-  const [pressed, setPressed] = useState(false);
+  const [pressed, setPressed] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleStart = (url) => url !== router.asPath && setIsLoading(true);
     const handleComplete = (url) =>
       url === router.asPath && setIsLoading(false);
@@ -54,8 +52,13 @@ export default function Input({ fullAddress, blockchain }) {
   });
 
   const router = useRouter();
-
   const www = "https://nomis.cc";
+
+  const [isMac, setIsMac] = React.useState(null);
+  React.useEffect(() => {
+    const userAgent = window.navigator.userAgent;
+    setIsMac(userAgent.search("Mac") !== -1 ? true : false);
+  });
 
   const handleClick = async () => {
     await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
@@ -68,8 +71,7 @@ export default function Input({ fullAddress, blockchain }) {
     }
   };
 
-  const inputRef = useRef();
-
+  const inputRef = React.useRef();
   useHotkeys("ctrl+/", () => {
     inputRef.current.focus();
     setTimeout(() => setPressed(false), 500);
@@ -127,7 +129,7 @@ export default function Input({ fullAddress, blockchain }) {
               isLoading ? "isLoading" : ""
             }`}
           >
-            ctrl+/
+            {isMac ? "cmd+/" : "ctrl+/"}
           </div>
         </div>
         <button onClick={handleClick} className="button callout">
