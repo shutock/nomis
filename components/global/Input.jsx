@@ -121,7 +121,7 @@ export default function Input({ fullAddress, blockchain }) {
             required
             onChange={(e) => setAddress(e.target.value)}
             onKeyDown={handleEnter}
-            // defaultValue={fullAddress}
+            defaultValue={fullAddress}
             autoComplete={false}
           />
           <div className={`loading ${isLoading ? "isLoading" : ""}`}>
