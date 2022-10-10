@@ -12,6 +12,12 @@ export const blockchains = [
     placeholder: "0x... or .bnb",
   },
   {
+    item: "Cube",
+    slug: "cube",
+    icon: "/blockchains/cube.svg",
+    placeholder: "0x...",
+  },
+  {
     item: "Ethereum",
     slug: "ethereum",
     icon: "/blockchains/ethereum.svg",
@@ -22,6 +28,12 @@ export const blockchains = [
     slug: "evmos",
     icon: "/blockchains/evmos.svg",
     placeholder: "0x or .evns",
+  },
+  {
+    item: "Moonbeam",
+    slug: "moonbeam",
+    icon: "/blockchains/moonbeam.svg",
+    placeholder: "0x.. or .moon",
   },
   {
     item: "Polygon",
