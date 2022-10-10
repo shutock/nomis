@@ -16,7 +16,7 @@ export default function Footer() {
           <nav>
             <ul className="menu">
               {footerMenu.map((item) => (
-                <li key={item.item}>
+                <li key={item.title}>
                   <Link href={item.link}>
                     <a>{item.title}</a>
                   </Link>
