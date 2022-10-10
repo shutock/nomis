@@ -69,8 +69,22 @@ export async function getServerSideProps(context) {
   const blockchain = await context.query.wallet[0];
   const fullAddress = await context.query.wallet[1];
 
-  const res = await fetch(
-    `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
+  async function fetchWithTimeout(resource, options = {}) {
+    const { timeout = 120000 } = options;
+
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+    const response = await fetch(resource, {
+      ...options,
+      signal: controller.signal,
+    });
+    clearTimeout(id);
+    return response;
+  }
+
+  const res = await fetchWithTimeout(
+    `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
+    { timeout: 120000 }
   );
 
   const json = await res.json();
