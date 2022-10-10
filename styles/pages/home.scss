@@ -6,6 +6,12 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  opacity: 1;
+  filter: blur(1rem);
+
+  div {
+    transform: scale(1.5);
+  }
 
   @media screen and (max-width: $mobile-width) {
     top: 20vh;
@@ -22,10 +28,17 @@
   gap: 4rem;
 
   .title {
+    margin-top: 3rem;
     flex-direction: column;
     align-items: center;
+    gap: 3rem;
+
     h1 {
       text-shadow: 0 0 1rem hsla(0, 0, 100, 0.6);
+    }
+
+    h2 {
+      font-weight: 400;
     }
   }
 
