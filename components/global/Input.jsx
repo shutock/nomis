@@ -55,7 +55,7 @@ export default function Input({ fullAddress, blockchain }) {
 
   const router = useRouter();
 
-  const www = "http://localhost:3000";
+  const www = "https://nomis.cc";
 
   const handleClick = async () => {
     await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
