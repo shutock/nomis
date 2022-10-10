@@ -105,7 +105,7 @@
     }
 
     .inputWrapper {
-      margin-left: 213px;
+      margin-left: calc(213px + 1rem);
       width: 100%;
       position: relative;
       overflow: hidden;
