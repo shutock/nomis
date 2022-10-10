@@ -10,6 +10,7 @@ export default function Document() {
         <meta name="author" content="Nomis" />
         <meta name="description" content={description} />
         <meta name="og:description" content={description} />
+        <link rel="icon" type="svg/xml" href="/nomisIcon.svg" />
       </Head>
       <body className="dark">
         <Main />
