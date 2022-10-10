@@ -32,7 +32,7 @@ export default function Input({ fullAddress, blockchain }) {
 
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState(activeBlockchain);
-  const [address, setAddress] = useState();
+  const [address, setAddress] = useState(fullAddress ? fullAddress : "");
   const [isLoading, setIsLoading] = useState(false);
   const [placeholder, setPlaceholder] = useState(
     blockchains[initialInput].placeholder
@@ -57,18 +57,15 @@ export default function Input({ fullAddress, blockchain }) {
 
   const www = "http://localhost:3000";
 
-  const handleClick = async (e) => {
-    await e.preventDefault();
-    setAddress(e.target.value);
-    console.log("___ " + e.target.value);
+  const handleClick = async () => {
+    // console.log("Click " + address);
     await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
   };
 
   const handleEnter = async (e) => {
     if (e.keyCode === 13) {
-      await e.preventDefault();
-      setAddress(e.target.value);
-      console.log(e.target.value);
+      // await e.preventDefault();
+      console.log("Enter " + address);
       await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
     }
   };
@@ -80,7 +77,7 @@ export default function Input({ fullAddress, blockchain }) {
     setTimeout(() => setPressed(false), 500);
     setPressed(true);
   });
-
+  // console.log(address);
   return (
     <div className="Input">
       <ul
@@ -112,17 +109,17 @@ export default function Input({ fullAddress, blockchain }) {
       </ul>
       <div className="field">
         <div className="inputWrapper">
-          {console.log("<<<<<<< " + fullAddress)}
           <input
             ref={inputRef}
             type="text"
+            id="fullAddress"
             placeholder={placeholder}
             name="address"
             required
             onChange={(e) => setAddress(e.target.value)}
             onKeyDown={handleEnter}
             defaultValue={fullAddress}
-            autoComplete={false}
+            autoComplete="false"
           />
           <div className={`loading ${isLoading ? "isLoading" : ""}`}>
             Loading
