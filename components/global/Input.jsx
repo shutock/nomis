@@ -8,26 +8,35 @@ import { blockchains } from "../../utilities/blockchains";
 import { useHotkeys } from "react-hotkeys-hook";
 
 export default function Input({ fullAddress, blockchain }) {
+  const initialInput = 3;
   const activeBlockchain =
     blockchain === "aeternity"
       ? "0"
       : blockchain === "bsc"
       ? "1"
-      : blockchain === "ethereum"
+      : blockchain === "cube"
       ? "2"
-      : blockchain === "evmos"
+      : blockchain === "ethereum"
       ? "3"
-      : blockchain === "polygon"
+      : blockchain === "evmos"
       ? "4"
-      : blockchain === "ripple"
+      : blockchain === "moonbeam"
       ? "5"
-      : "6";
+      : blockchain === "polygon"
+      ? "6"
+      : blockchain === "ripple"
+      ? "7"
+      : blockchain === "solana"
+      ? "8"
+      : initialInput;
 
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState(activeBlockchain);
   const [address, setAddress] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [placeholder, setPlaceholder] = useState("");
+  const [placeholder, setPlaceholder] = useState(
+    blockchains[initialInput].placeholder
+  );
   const [pressed, setPressed] = useState(false);
 
   useEffect(() => {
@@ -46,19 +55,21 @@ export default function Input({ fullAddress, blockchain }) {
 
   const router = useRouter();
 
-  const www = "https://nomis.vercel.app";
+  const www = "http://localhost:3000";
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = async (e) => {
+    await e.preventDefault();
     setAddress(e.target.value);
-    router.push(`${www}/score/${blockchains[active].slug}/${address}`);
+    console.log("___ " + e.target.value);
+    await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
   };
 
-  const handleEnter = (e) => {
+  const handleEnter = async (e) => {
     if (e.keyCode === 13) {
-      e.preventDefault();
+      await e.preventDefault();
       setAddress(e.target.value);
-      router.push(`${www}/score/${blockchains[active].slug}/${address}`);
+      console.log(e.target.value);
+      await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
     }
   };
 
@@ -101,6 +112,7 @@ export default function Input({ fullAddress, blockchain }) {
       </ul>
       <div className="field">
         <div className="inputWrapper">
+          {console.log("<<<<<<< " + fullAddress)}
           <input
             ref={inputRef}
             type="text"
@@ -109,7 +121,7 @@ export default function Input({ fullAddress, blockchain }) {
             required
             onChange={(e) => setAddress(e.target.value)}
             onKeyDown={handleEnter}
-            defaultValue={fullAddress ? fullAddress : ""}
+            // defaultValue={fullAddress}
             autoComplete={false}
           />
           <div className={`loading ${isLoading ? "isLoading" : ""}`}>
