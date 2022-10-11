@@ -30,6 +30,10 @@ section {
 }
 
 main {
-  min-height: 60vh;
   align-items: flex-start;
+  min-height: calc(100vh - 200px - 6rem);
+
+  @media screen and (max-width: $mobile-width) {
+    min-height: calc(100vh - 197px - 6rem);
+  }
 }

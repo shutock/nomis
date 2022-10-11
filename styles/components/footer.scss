@@ -5,7 +5,7 @@ footer {
   section {
     flex-direction: column;
     line-height: 1;
-    color: $text-body;
+    color: $text-footnote;
 
     p {
       line-height: 1.25;
@@ -18,6 +18,29 @@ footer {
 
     a {
       color: inherit;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -0.5em;
+        bottom: -0.25em;
+        width: 0%;
+        height: 1px;
+        background: $text-callout;
+
+        transition: left $fast, width $fast, opacity $fast;
+      }
+
+      &:hover {
+        color: $text-callout;
+
+        &::before {
+          left: 0;
+          width: 100%;
+          opacity: 1;
+        }
+      }
     }
 
     .menu {

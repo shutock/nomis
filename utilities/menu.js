@@ -1,33 +1,33 @@
 export const mainMenu = [
   {
     title: "Docs",
-    link: "/docs",
+    link: "https://api.nomis.cc",
   },
   {
     title: "Contact Us",
-    link: "/contact",
+    link: "mailto:gm@momis.cc",
   },
   {
     title: "Follow Us",
-    link: "/social",
+    link: "https://twitter.com/nomis_protocol",
   },
 ];
 
 export const footerMenu = [
   {
     title: "Docs",
-    link: "/docs",
+    link: "https://api.nomis.cc",
   },
   {
     title: "Contact Us",
-    link: "/contact",
+    link: "mailto:gm@nomis.cc",
   },
   {
     title: "Twitter",
-    link: "#",
+    link: "https://twitter.com/nomis_protocol",
   },
   {
     title: "Telegram",
-    link: "#",
+    link: "https://t.me/nomis_protocol",
   },
 ];

@@ -6,10 +6,10 @@ export default function GetScore() {
     <MainLayout title="Get Yout Nomis Score">
       <div className="wrapper">
         <section className="GetScore">
-          <Input />
           <div className="paragraph">
             <h1>Get Your Nomis Score</h1>
-            <p>
+            <Input />
+            {/* <p>
               Est ea enim ipsum exercitation ullamco amet nostrud. Exercitation
               non id eiusmod ipsum sit Lorem. Laboris reprehenderit ipsum ipsum
               excepteur ex. Commodo aliqua consectetur amet et officia in
@@ -20,7 +20,7 @@ export default function GetScore() {
               reprehenderit officia. Laboris eu occaecat ullamco aliqua.
               Excepteur id reprehenderit cupidatat et consequat laborum. Fugiat
               adipisicing id est incididunt in minim ad et incididunt.
-            </p>
+            </p> */}
           </div>
         </section>
       </div>

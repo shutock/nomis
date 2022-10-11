@@ -30,6 +30,33 @@ header {
   .mainMenu {
     display: flex;
     gap: 1rem;
+
+    a {
+      transition: color $fast;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -0.5em;
+        bottom: -0.25em;
+        width: 0%;
+        height: 1px;
+        background: $text-title;
+
+        transition: left $fast, width $fast, opacity $fast;
+      }
+
+      &:hover {
+        color: $text-title;
+
+        &::before {
+          left: 0;
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &.isScrolled {
