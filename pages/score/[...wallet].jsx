@@ -46,10 +46,11 @@ export default function Scored({ blockchain, fullAddress }) {
       const response = await fetch(
         `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
         { mode: "no-cors" }
-      );
-      setWallet(await response.json()).then(setLoading(false));
-      setSuccess(wallet.succeeded);
-      console.log(wallet);
+      )
+        .then(setWallet(await response.json()))
+        .then(setLoading(false))
+        .then(setSuccess(wallet.succeeded))
+        .then(console.log(wallet));
     }
     getData();
   }, []);
@@ -74,6 +75,16 @@ export default function Scored({ blockchain, fullAddress }) {
   return (
     <MainLayout title={`${address}`}>
       <div className="wrapper">
+        <Input blockchain={blockchain} fullAddress={fullAddress} />
+        {console.log("Loading: " + loading)}
+        {console.log("Success: " + success)}
+      </div>
+    </MainLayout>
+  );
+}
+
+/* 
+<div className="wrapper">
         <Input blockchain={blockchain} fullAddress={fullAddress} />
         {loading ? (
           <section className="error">
@@ -112,6 +123,4 @@ export default function Scored({ blockchain, fullAddress }) {
           </section>
         )}
       </div>
-    </MainLayout>
-  );
-}
+ */
