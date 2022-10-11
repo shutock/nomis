@@ -124,6 +124,7 @@
         border-radius: $border-m;
         background: $bg-overlay-1;
         border: 1px solid transparent;
+        color: $text-body;
 
         transition: background $fast, border $fast;
 
