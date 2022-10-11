@@ -45,7 +45,7 @@ export default function Scored({ blockchain, fullAddress }) {
       setLoading(true);
       const response = await fetch(
         `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
-        { method: "no-cors" }
+        { mode: "no-cors" }
       );
       setWallet(await response.json());
       setLoading(false);
