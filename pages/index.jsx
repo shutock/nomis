@@ -28,7 +28,7 @@ export default function Home() {
               <span>Try dApp</span>
             </button>
           </Link>
-          <Link href="/docs">
+          <Link href="https://api.nomis.cc">
             <button className="docs">
               <span>Read Docs</span>
             </button>
