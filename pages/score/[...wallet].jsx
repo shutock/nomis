@@ -47,8 +47,7 @@ export default function Scored({ blockchain, fullAddress }) {
         `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
         { mode: "no-cors" }
       );
-      setWallet(await response.json());
-      setLoading(false);
+      setWallet(await response.json()).then(setLoading(false));
       setSuccess(wallet.succeeded);
       console.log(wallet);
     }
@@ -67,7 +66,7 @@ export default function Scored({ blockchain, fullAddress }) {
       ? fullAddress[0] +
         fullAddress[1] +
         fullAddress[2] +
-        "• • •" +
+        " · · · " +
         fullAddress[fullAddress.length - 3] +
         fullAddress[fullAddress.length - 2] +
         fullAddress[fullAddress.length - 1]
