@@ -33,8 +33,8 @@ export default function Scored({ blockchain, fullAddress }) {
         console.log(response);
         console.log(response.data);
 
-        // setWallet(response.data);
-        // setSuccess(response.succeeded);
+        setWallet(response.data);
+        setSuccess(response.succeeded);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -44,7 +44,7 @@ export default function Scored({ blockchain, fullAddress }) {
     getData();
   }, []);
 
-  console.log(`Wallet: ${wallet}\nSuccess: ${wallet}`);
+  console.log(`Wallet: ${wallet}\nSuccess: ${success}`);
 
   const [isScrolled, setIsScrolled] = React.useState(false);
   React.useEffect(() => {
