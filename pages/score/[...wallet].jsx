@@ -19,7 +19,6 @@ export async function getServerSideProps(context) {
 export default function Scored({ blockchain, fullAddress }) {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
-  const [data, setData] = React.useState(null);
   const [wallet, setWallet] = React.useState(null);
   const [success, setSuccess] = React.useState(false);
 
@@ -30,16 +29,14 @@ export default function Scored({ blockchain, fullAddress }) {
           `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
         ).then((response) => response.json());
 
-        setData(response);
         setError(null);
         console.log(response);
-        console.log(response.date);
+        console.log(response.data);
 
-        setWallet(data.data);
-        setSuccess(data.succeeded);
+        setWallet(response.data);
+        setSuccess(response.succeeded);
       } catch (err) {
         setError(err.message);
-        setData(null);
       } finally {
         setLoading(false);
       }
