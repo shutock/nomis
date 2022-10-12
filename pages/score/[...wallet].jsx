@@ -31,8 +31,8 @@ export default function Scored({ blockchain, fullAddress }) {
     const getData = async () => {
       try {
         const response = await fetch(
-          `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
-          // { mode: "no-cors" }
+          `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
+          { mode: "no-cors" }
         ).then((response) => response.json());
 
         setError(null);
