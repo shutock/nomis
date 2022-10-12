@@ -97,7 +97,7 @@ export default function Scored({ blockchain, fullAddress }) {
             blockchain={blockchain}
             fullAddress={fullAddress}
           />
-          <WalletUser
+          {/* <WalletUser
             wallet={{ wallet }}
             blockchain={blockchain}
             address={address}
@@ -110,7 +110,7 @@ export default function Scored({ blockchain, fullAddress }) {
               address={address}
               fullAddress={fullAddress}
             />
-          </div>
+          </div> */}
         </div>
       )}
       {wallet && !success && (
