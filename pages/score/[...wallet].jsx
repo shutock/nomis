@@ -85,49 +85,49 @@ export default function Scored({ blockchain, fullAddress }) {
           </button>
         </section>
       )}
-      {success && (
-        <div className="scored">
-          <WalletData
-            wallet={wallet}
-            blockchain={blockchain}
-            fullAddress={fullAddress}
-          />
-          <WalletUser
-            wallet={{ wallet }}
-            blockchain={blockchain}
-            address={address}
-            fullAddress={fullAddress}
-          />
-          <div className={`mobile ${isScrolled ? "isScrolled" : ""}`}>
+      {wallet &&
+        (success ? (
+          <div className="scored">
+            <WalletData
+              wallet={wallet}
+              blockchain={blockchain}
+              fullAddress={fullAddress}
+            />
             <WalletUser
               wallet={{ wallet }}
               blockchain={blockchain}
               address={address}
               fullAddress={fullAddress}
             />
+            <div className={`mobile ${isScrolled ? "isScrolled" : ""}`}>
+              <WalletUser
+                wallet={{ wallet }}
+                blockchain={blockchain}
+                address={address}
+                fullAddress={fullAddress}
+              />
+            </div>
           </div>
-        </div>
-      )}
-      {!error && !success && (
-        <section className="message noSuccess">
-          <h2>There is No {address}</h2>
-          <div className="paragraph">
-            <p>
-              We can't find {fullAddress} on {blockchain} blockchain.
-            </p>
-            <p>
-              If you think it's wrong please{" "}
-              <Link href="mailto:gm@nomis.cc">
-                <a>contact us</a>
-              </Link>{" "}
-              .
-            </p>
-          </div>
-          <button onClick={tryAgainHandler} className="tryAgain">
-            Try Again
-          </button>
-        </section>
-      )}
+        ) : (
+          <section className="message noSuccess">
+            <h2>There is No {address}</h2>
+            <div className="paragraph">
+              <p>
+                We can't find {fullAddress} on {blockchain} blockchain.
+              </p>
+              <p>
+                If you think it's wrong please{" "}
+                <Link href="mailto:gm@nomis.cc">
+                  <a>contact us</a>
+                </Link>{" "}
+                .
+              </p>
+            </div>
+            <button onClick={tryAgainHandler} className="tryAgain">
+              Try Again
+            </button>
+          </section>
+        ))}
     </MainLayout>
   );
 }
