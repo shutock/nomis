@@ -34,15 +34,15 @@ export default function Scored({ blockchain, fullAddress }) {
       } catch (err) {
         setError(err.message);
         setData(null);
+
+        setWallet(data.data);
+        setSuccess(data.succeeded);
       } finally {
         setLoading(false);
       }
     };
     getData();
   }, []);
-
-  () => setWallet(data.data);
-  () => setSuccess(data.succeeded);
 
   console.log(`Wallet: ${wallet}\nSuccess: ${wallet}`);
 
