@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import MainLayout from "../../layouts/Main";
 
@@ -25,7 +26,7 @@ export async function getServerSideProps(context) {
 export default function Scored({ blockchain, fullAddress }) {
   const [wallet, setWallet] = React.useState(null);
   const [success, setSuccess] = React.useState(null);
-  const [loading, setLoading] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
 
   // React.useEffect(() => {
@@ -41,17 +42,22 @@ export default function Scored({ blockchain, fullAddress }) {
   // }, []);
 
   React.useEffect(() => {
-    async function getData() {
-      setLoading(true);
-      const response = await fetch(
-        `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
-        { mode: "no-cors" }
-      )
-        .then(setWallet(await response.json()))
-        .then(setLoading(false))
-        .then(setSuccess(wallet.succeeded))
-        .then(console.log(wallet));
-    }
+    const getData = async () => {
+      try {
+        const response = await fetch(
+          // `https://jsonplaceholder.typicode.com/posts?_limit=10`
+          `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
+          // { mode: "no-cors" }
+        );
+        setWallet(response.data);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        setWallet(null);
+      } finally {
+        setLoading(false);
+      }
+    };
     getData();
   }, []);
 
@@ -72,12 +78,11 @@ export default function Scored({ blockchain, fullAddress }) {
         fullAddress[fullAddress.length - 2] +
         fullAddress[fullAddress.length - 1]
       : fullAddress;
+
   return (
     <MainLayout title={`${address}`}>
       <div className="wrapper">
         <Input blockchain={blockchain} fullAddress={fullAddress} />
-        {console.log("Loading: " + loading)}
-        {console.log("Success: " + success)}
       </div>
     </MainLayout>
   );
