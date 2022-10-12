@@ -31,7 +31,9 @@ section {
 
 main {
   align-items: flex-start;
+  justify-content: flex-start;
   min-height: calc(100vh - 200px - 6rem);
+  flex-direction: column;
 
   @media screen and (max-width: $mobile-width) {
     min-height: calc(100vh - 197px - 6rem);

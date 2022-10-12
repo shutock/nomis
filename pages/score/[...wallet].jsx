@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 import MainLayout from "../../layouts/Main";
 
@@ -15,41 +16,20 @@ export async function getServerSideProps(context) {
   return { props: { blockchain, fullAddress } };
 }
 
-// export async function getWalletData({ blockchain, fullAddress }) {
-//   const res = await fetch(
-//     `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
-//   );
-//   const { json } = await res.json();
-//   return json;
-// }
-
 export default function Scored({ blockchain, fullAddress }) {
   const [wallet, setWallet] = React.useState(null);
-  const [success, setSuccess] = React.useState(null);
+  const [success, setSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
-
-  // React.useEffect(() => {
-  //   fetch(
-  //     `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`,
-  //     { mode: "no-cors" }
-  //   ).then((response) => {
-  //     const json = response.json();
-  //     console.log(response);
-  //     setWallet(json.data);
-  //     setSuccess(json.succeeded);
-  //   });
-  // }, []);
 
   React.useEffect(() => {
     const getData = async () => {
       try {
         const response = await fetch(
-          // `https://jsonplaceholder.typicode.com/posts?_limit=10`
           `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
-          // { mode: "no-cors" }
         );
         setWallet(response.data);
+        setSuccess(res.succeeded);
         setError(null);
       } catch (err) {
         setError(err.message);
@@ -79,11 +59,76 @@ export default function Scored({ blockchain, fullAddress }) {
         fullAddress[fullAddress.length - 1]
       : fullAddress;
 
+  const router = useRouter();
+
+  const tryAgainHandler = () => {
+    router.reload();
+  };
+
   return (
     <MainLayout title={`${address}`}>
       <div className="wrapper">
         <Input blockchain={blockchain} fullAddress={fullAddress} />
+        {loading && (
+          <section className="message loading">
+            <h2>Please Wait...</h2>
+            <p>Our calculations are not that fast. Give us a minute</p>
+          </section>
+        )}
       </div>
+      {error && (
+        <section className="message error">
+          <h2>There is an Error</h2>
+          <p>We have an error: {error}.</p>
+          <button onClick={tryAgainHandler} className="tryAgain">
+            Try Again
+          </button>
+        </section>
+      )}
+      {success && (
+        <div className="scored">
+          <WalletData
+            wallet={wallet}
+            blockchain={blockchain}
+            fullAddress={fullAddress}
+          />
+          <WalletUser
+            wallet={{ wallet }}
+            blockchain={blockchain}
+            address={address}
+            fullAddress={fullAddress}
+          />
+          <div className={`mobile ${isScrolled ? "isScrolled" : ""}`}>
+            <WalletUser
+              wallet={{ wallet }}
+              blockchain={blockchain}
+              address={address}
+              fullAddress={fullAddress}
+            />
+          </div>
+        </div>
+      )}
+      {!error &&
+        !success(
+          <section className="message noSuccess">
+            <h2>There is No {address}</h2>
+            <div className="paragraph">
+              <p>
+                We can't find {fullAddress} on {blockchain} blockchain.
+              </p>
+              <p>
+                If you think it's wrong please{" "}
+                <Link href="mailto:gm@nomis.cc">
+                  <a>contact us</a>
+                </Link>{" "}
+                .
+              </p>
+            </div>
+            <button onClick={tryAgainHandler} className="tryAgain">
+              Try Again
+            </button>
+          </section>
+        )}
     </MainLayout>
   );
 }

@@ -138,6 +138,8 @@
       }
 
       .loading {
+        z-index: 3;
+        -webkit-backdrop-filter: $blur-soft;
         position: absolute;
         top: -50%;
         right: 1rem;
@@ -155,6 +157,9 @@
       }
 
       .shortcut {
+        z-index: 3;
+        backdrop-filter: $blur-soft;
+        -webkit-backdrop-filter: $blur-soft;
         position: absolute;
         top: 50%;
         right: 0.75rem;
