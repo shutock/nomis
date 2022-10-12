@@ -31,12 +31,12 @@ export default function Scored({ blockchain, fullAddress }) {
         );
         setData(response.data);
         setError(null);
-      } catch (err) {
-        setError(err.message);
-        setData(null);
 
         setWallet(data.data);
         setSuccess(data.succeeded);
+      } catch (err) {
+        setError(err.message);
+        setData(null);
       } finally {
         setLoading(false);
       }
