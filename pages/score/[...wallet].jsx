@@ -67,6 +67,7 @@ export default function Scored({ blockchain, fullAddress }) {
 
   return (
     <MainLayout title={`${address}`}>
+      {console.log(success)}
       <div className="wrapper">
         <Input blockchain={blockchain} fullAddress={fullAddress} />
         {loading && (
