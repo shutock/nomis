@@ -52,7 +52,7 @@ export default function Input({ fullAddress, blockchain }) {
   });
 
   const router = useRouter();
-  const www = "https://nomis.cc";
+  const www = "https://test.nomis.cc";
 
   const [isMac, setIsMac] = React.useState(null);
   React.useEffect(() => {
