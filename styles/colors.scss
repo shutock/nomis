@@ -44,9 +44,9 @@ $information-tint: hsla($_blue, $_saturation, $_light, $_tint);
 
 $text-title: rgba($_txt, $_txt, $_txt, 1); //headings
 $text-body: rgba($_txt, $_txt, $_txt, 0.8); //base tetx
-$text-callout: rgba($_txt, $_txt, $_txt, 0.6); //links and buttons
-$text-caption: rgba($_txt, $_txt, $_txt, 0.4); //tips and etc
-$text-footnote: rgba($_txt, $_txt, $_txt, 0.2); //ghosty types
+$text-callout: rgba($_txt, $_txt, $_txt, 0.7); //links and buttons
+$text-caption: rgba($_txt, $_txt, $_txt, 0.6); //tips and etc
+$text-footnote: rgba($_txt, $_txt, $_txt, 0.4); //ghosty types
 
 $bg-main: rgba($_bg, $_bg, $_bg, 1);
 $bg-alpha: rgba($_bg, $_bg, $_bg, 0.8);

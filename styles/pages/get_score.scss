@@ -28,6 +28,11 @@
   gap: 0.5rem;
   align-items: center;
 
+  svg {
+    width: 128px !important;
+    margin: -16px;
+  }
+
   .paragraph {
     display: flex;
     flex-direction: column;
@@ -41,6 +46,12 @@
   p {
     padding: 0 1rem;
     text-align: center;
+  }
+
+  &.loading {
+    p {
+      margin-bottom: 1rem;
+    }
   }
 
   &.error {

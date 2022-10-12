@@ -1,6 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Lottie from "lottie-react";
+
+import errorAnimation from "../../utilities/error.json";
+import loadingAnimation from "../../utilities/loading.json";
+import notFoundAnimation from "../../utilities/notFound.json";
 
 import MainLayout from "../../layouts/Main";
 
@@ -27,6 +32,7 @@ export default function Scored({ blockchain, fullAddress }) {
       try {
         const response = await fetch(
           `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
+          // { mode: "no-cors" }
         ).then((response) => response.json());
 
         setError(null);
@@ -76,28 +82,29 @@ export default function Scored({ blockchain, fullAddress }) {
         <Input blockchain={blockchain} fullAddress={fullAddress} />
         {loading && (
           <section className="message loading">
+            <Lottie animationData={loadingAnimation} loop={true} size="240px" />
             <h2>Please Wait...</h2>
             <p>Our calculations are not that fast. Give us a minute</p>
           </section>
         )}
-      </div>
-      {error && (
-        <section className="message error">
-          <h2>There is an Error</h2>
-          <p>We have an error: {error}.</p>
-          <button onClick={tryAgainHandler} className="tryAgain">
-            Try Again
-          </button>
-        </section>
-      )}
-      {success && (
-        <div className="scored">
-          <WalletData
-            wallet={wallet}
-            blockchain={blockchain}
-            fullAddress={fullAddress}
-          />
-          {/* <WalletUser
+        {error && (
+          <section className="message error">
+            <Lottie animationData={errorAnimation} loop={true} size="240px" />
+            <h2>There is an Error</h2>
+            <p>We have an error: {error}.</p>
+            <button onClick={tryAgainHandler} className="tryAgain">
+              Try Again
+            </button>
+          </section>
+        )}
+        {success && (
+          <div className="scored">
+            <WalletData
+              wallet={wallet}
+              blockchain={blockchain}
+              fullAddress={fullAddress}
+            />
+            {/* <WalletUser
             wallet={{ wallet }}
             blockchain={blockchain}
             address={address}
@@ -111,28 +118,34 @@ export default function Scored({ blockchain, fullAddress }) {
               fullAddress={fullAddress}
             />
           </div> */}
-        </div>
-      )}
-      {wallet && !success && (
-        <section className="message noSuccess">
-          <h2>There is No {address}</h2>
-          <div className="paragraph">
-            <p>
-              We can't find {fullAddress} on {blockchain} blockchain.
-            </p>
-            <p>
-              If you think it's wrong please{" "}
-              <Link href="mailto:gm@nomis.cc">
-                <a>contact us</a>
-              </Link>{" "}
-              .
-            </p>
           </div>
-          <button onClick={tryAgainHandler} className="tryAgain">
-            Try Again
-          </button>
-        </section>
-      )}
+        )}
+        {wallet && !success && (
+          <section className="message noSuccess">
+            <Lottie
+              animationData={notFoundAnimation}
+              loop={true}
+              size="240px"
+            />
+            <h2>There is No {address}</h2>
+            <div className="paragraph">
+              <p>
+                We can't find {fullAddress} on {blockchain} blockchain.
+              </p>
+              <p>
+                If you think it's wrong please{" "}
+                <Link href="mailto:gm@nomis.cc">
+                  <a>contact us</a>
+                </Link>{" "}
+                .
+              </p>
+            </div>
+            <button onClick={tryAgainHandler} className="tryAgain">
+              Try Again
+            </button>
+          </section>
+        )}
+      </div>
     </MainLayout>
   );
 }
