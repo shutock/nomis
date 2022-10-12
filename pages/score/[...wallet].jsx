@@ -28,8 +28,8 @@ export default function Scored({ blockchain, fullAddress }) {
         const response = await fetch(
           `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
         );
-        setWallet(response.data);
-        setSuccess(response.succeeded);
+        setWallet(await response.data);
+        setSuccess(await response.succeeded);
         setError(null);
       } catch (err) {
         setError(err.message);
@@ -85,7 +85,7 @@ export default function Scored({ blockchain, fullAddress }) {
           </button>
         </section>
       )}
-      {wallet && success && (
+      {success && (
         <div className="scored">
           <WalletData
             wallet={wallet}
