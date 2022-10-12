@@ -25,7 +25,7 @@ export default function Scored({ blockchain, fullAddress }) {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const { response } = await fetch(
+        const response = await fetch(
           `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
         ).then((response) => response.json());
 
@@ -33,8 +33,8 @@ export default function Scored({ blockchain, fullAddress }) {
         console.log(response);
         console.log(response.data);
 
-        setWallet(response.data);
-        setSuccess(response.succeeded);
+        // setWallet(response.data);
+        // setSuccess(response.succeeded);
       } catch (err) {
         setError(err.message);
       } finally {
