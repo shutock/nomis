@@ -29,7 +29,7 @@ export default function Scored({ blockchain, fullAddress }) {
           `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
         );
         setWallet(response.data);
-        setSuccess(res.succeeded);
+        setSuccess(response.succeeded);
         setError(null);
       } catch (err) {
         setError(err.message);
