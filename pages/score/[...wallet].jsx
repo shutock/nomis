@@ -17,10 +17,11 @@ export async function getServerSideProps(context) {
 }
 
 export default function Scored({ blockchain, fullAddress }) {
-  const [wallet, setWallet] = React.useState(null);
-  const [success, setSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
+  const [data, setData] = React.useState(null);
+  const [wallet, setWallet] = React.useState(null);
+  const [success, setSuccess] = React.useState(false);
 
   React.useEffect(() => {
     const getData = async () => {
@@ -28,23 +29,20 @@ export default function Scored({ blockchain, fullAddress }) {
         const response = await fetch(
           `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
         );
-        setWallet(response.data.data);
-        console.log("Wallet: " + wallet);
-
-        setSuccess(response.succeeded.data.succeeded);
-        console.log("success: " + success);
-
+        setData(response.data);
         setError(null);
       } catch (err) {
         setError(err.message);
-        setWallet(null);
-        setSuccess(false);
+        setData(null);
       } finally {
         setLoading(false);
       }
     };
     getData();
   }, []);
+
+  () => setWallet(data.data);
+  () => setSuccess(data.succeeded);
 
   const [isScrolled, setIsScrolled] = React.useState(false);
   React.useEffect(() => {
