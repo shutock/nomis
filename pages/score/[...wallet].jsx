@@ -28,9 +28,8 @@ export default function Scored({ blockchain, fullAddress }) {
         const response = await fetch(
           `https://api.nomis.cc/api/v1/${blockchain}/wallet/${fullAddress}/score`
         );
-        const res = response.json();
-        setWallet(await res.data);
-        setSuccess(await res.succeeded);
+        setWallet(response.json().data);
+        setSuccess(response.json().succeeded);
         setError(null);
       } catch (err) {
         setError(err.message);
