@@ -44,6 +44,8 @@ export default function Scored({ blockchain, fullAddress }) {
   () => setWallet(data.data);
   () => setSuccess(data.succeeded);
 
+  console.log(`Wallet: ${wallet}\nSuccess: ${wallet}`);
+
   const [isScrolled, setIsScrolled] = React.useState(false);
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
