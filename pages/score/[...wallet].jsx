@@ -31,6 +31,8 @@ export default function Scored({ blockchain, fullAddress }) {
         );
         setData(response.data);
         setError(null);
+        console.log(response);
+        console.log(response.date);
 
         setWallet(data.data);
         setSuccess(data.succeeded);
