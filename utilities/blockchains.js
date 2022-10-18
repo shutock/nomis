@@ -30,6 +30,12 @@ export const blockchains = [
     placeholder: "0x or .evns",
   },
   {
+    item: "Klaytn",
+    slug: "klaytn",
+    icon: "/blockchains/klaytn.svg",
+    placeholder: "0x.. or .klay",
+  },
+  {
     item: "Moonbeam",
     slug: "moonbeam",
     icon: "/blockchains/moonbeam.svg",
