@@ -27,6 +27,109 @@ export default function Scored({ blockchain, fullAddress }) {
   const [wallet, setWallet] = React.useState(null);
   const [success, setSuccess] = React.useState(false);
 
+  const res = {
+    data: {
+      score: 0.42218833388499993,
+      stats: {
+        noData: false,
+        deployedContracts: 1,
+        balance: 0.008547790366472762,
+        balanceUSD: 11.39403360270086229076,
+        walletAge: 53,
+        totalTransactions: 75,
+        totalRejectedTransactions: 0,
+        averageTransactionTime: 515.9115990990991,
+        maxTransactionTime: 32901.63333333333,
+        minTransactionTime: 0,
+        walletTurnover: 44.970909384880461895,
+        turnoverIntervals: [
+          {
+            startDate: "2018-06-03T16:06:05",
+            endDate: "2018-07-03T16:06:05",
+            amountSumValue: 41.745,
+            amountOutSumValue: 26.815,
+            amountInSumValue: 14.93,
+            count: 16,
+          },
+          {
+            startDate: "2018-07-03T16:06:05",
+            endDate: "2018-08-03T16:06:05",
+            amountSumValue: 1.5,
+            amountOutSumValue: 1.5,
+            amountInSumValue: 0,
+            count: 3,
+          },
+          {
+            startDate: "2018-08-03T16:06:05",
+            endDate: "2018-09-03T16:06:05",
+            amountSumValue: 0.196,
+            amountOutSumValue: 0.196,
+            amountInSumValue: 0,
+            count: 2,
+          },
+          {
+            startDate: "2022-05-03T16:06:05",
+            endDate: "2022-06-03T16:06:05",
+            amountSumValue: 0.038183489928165635,
+            amountOutSumValue: 0.014006489928165635,
+            amountInSumValue: 0.024177,
+            count: 6,
+          },
+          {
+            startDate: "2022-06-03T16:06:05",
+            endDate: "2022-07-03T16:06:05",
+            amountSumValue: 1.29110562,
+            amountOutSumValue: 0.615,
+            amountInSumValue: 0.67610562,
+            count: 9,
+          },
+          {
+            startDate: "2022-07-03T16:06:05",
+            endDate: "2022-08-03T16:06:05",
+            amountSumValue: 0.16,
+            amountOutSumValue: 0.16,
+            amountInSumValue: 0,
+            count: 11,
+          },
+          {
+            startDate: "2022-08-03T16:06:05",
+            endDate: "2022-09-03T16:06:05",
+            amountSumValue: 0.01,
+            amountOutSumValue: 0.01,
+            amountInSumValue: 0,
+            count: 11,
+          },
+          {
+            startDate: "2022-09-03T16:06:05",
+            endDate: "2022-10-03T16:06:05",
+            amountSumValue: 0.03062027495229626,
+            amountOutSumValue: 0.03062027495229626,
+            amountInSumValue: 0,
+            count: 15,
+          },
+          {
+            startDate: "2022-10-03T16:06:05",
+            endDate: "2022-11-03T16:06:05",
+            amountSumValue: 0,
+            amountOutSumValue: 0,
+            amountInSumValue: 0,
+            count: 2,
+          },
+        ],
+        nftHolding: 11,
+        timeFromLastTransaction: 0,
+        nftTrading: -0.000681063374797192,
+        nftWorth: 0,
+        lastMonthTransactions: 5,
+        lastYearTransactions: 54,
+        transactionsPerMonth: 1.4150943396226414,
+        tokensHolding: 23,
+      },
+    },
+    messages: ["Got ethereum wallet score."],
+    succeeded: true,
+  };
+
   React.useEffect(() => {
     const getData = async () => {
       try {
@@ -36,13 +139,15 @@ export default function Scored({ blockchain, fullAddress }) {
         ).then((response) => response.json());
 
         setError(null);
-        console.log(response);
-        console.log(response.data);
+        // console.log(response);
+        // console.log(response.data);
 
         setWallet(response.data);
         setSuccess(response.succeeded);
       } catch (err) {
         setError(err.message);
+        // setWallet(res.data);
+        // setSuccess(res.succeeded);
       } finally {
         setLoading(false);
       }
@@ -50,7 +155,7 @@ export default function Scored({ blockchain, fullAddress }) {
     getData();
   }, []);
 
-  console.log(`Wallet: ${wallet}\nSuccess: ${success}`);
+  // console.log(`Wallet: ${wallet}\nSuccess: ${success}`);git
 
   const [isScrolled, setIsScrolled] = React.useState(false);
   React.useEffect(() => {
@@ -84,7 +189,7 @@ export default function Scored({ blockchain, fullAddress }) {
           <section className="message loading">
             <Lottie animationData={loadingAnimation} loop={true} size="240px" />
             <h2>Please Wait...</h2>
-            <p>Our calculations are not that fast. Give us a minute</p>
+            <p>Our calculations are not that fast. Give us a minute.</p>
           </section>
         )}
         {error && (
@@ -104,20 +209,20 @@ export default function Scored({ blockchain, fullAddress }) {
               blockchain={blockchain}
               fullAddress={fullAddress}
             />
-            {/* <WalletUser
-            wallet={{ wallet }}
-            blockchain={blockchain}
-            address={address}
-            fullAddress={fullAddress}
-          />
-          <div className={`mobile ${isScrolled ? "isScrolled" : ""}`}>
             <WalletUser
-              wallet={{ wallet }}
+              wallet={wallet}
               blockchain={blockchain}
               address={address}
               fullAddress={fullAddress}
             />
-          </div> */}
+            <div className={`mobile ${isScrolled ? "isScrolled" : ""}`}>
+              <WalletUser
+                wallet={wallet}
+                blockchain={blockchain}
+                address={address}
+                fullAddress={fullAddress}
+              />
+            </div>
           </div>
         )}
         {wallet && !success && (
@@ -136,7 +241,7 @@ export default function Scored({ blockchain, fullAddress }) {
                 If you think it's wrong please{" "}
                 <Link href="mailto:gm@nomis.cc">
                   <a>contact us</a>
-                </Link>{" "}
+                </Link>
                 .
               </p>
             </div>

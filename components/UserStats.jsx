@@ -1,4 +1,11 @@
+import React from "react";
+
 export default function UserStats({ wallet, blockchain }) {
+  const [isMonth, setIsMonth] = React.useState();
+  wallet.stats.walletAge > 24
+    ? () => setIsMonth(false)
+    : () => setIsMonth(true);
+
   return (
     <>
       {!wallet.stats.noData ? (
@@ -16,7 +23,15 @@ export default function UserStats({ wallet, blockchain }) {
             <span>Wallet Turnover</span>
           </div>
           <div className="age">
-            <div className="mo">{wallet.stats.walletAge}</div>
+            {isMonth === true
+              ? wallet.stats.walletAge +
+                " month" +
+                (wallet.stats.walletAge > 1 ? "s" : "")
+              : Math.floor(wallet.stats.walletAge / 12) +
+                "y " +
+                (wallet.stats.walletAge -
+                  Math.floor(wallet.stats.walletAge / 12) * 12 +
+                  "m")}
             <span>Wallet Age</span>
           </div>
         </div>

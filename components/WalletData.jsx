@@ -4,7 +4,7 @@ import DataTable from "./DataTable";
 export default function WalletData({ wallet, blockchain, fullAddress }) {
   return (
     <section className="WalletData">
-      <DataCards wallet={wallet} />
+      <DataCards wallet={wallet} blockchain={blockchain} />
       {!wallet.stats.noData ? (
         <DataTable wallet={wallet} />
       ) : (

@@ -7,7 +7,7 @@ export default function Score({ wallet }) {
       <h5>Nomis Score</h5>
       <p>
         The overall Nomis score is {Math.round(wallet.score * 10000) / 100}
-        /100.00
+        /100.00.
       </p>
     </div>
   );

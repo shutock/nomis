@@ -66,10 +66,12 @@ export default function Input({ fullAddress, blockchain }) {
 
   const handleEnter = async (e) => {
     if (e.keyCode === 13) {
-      console.log("Enter " + address);
+      // console.log("Enter " + address);
       await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
     }
   };
+
+  const [hide, setHide] = React.useState(false);
 
   const inputRef = React.useRef();
   useHotkeys("ctrl+/", () => {
@@ -120,14 +122,16 @@ export default function Input({ fullAddress, blockchain }) {
             onKeyDown={handleEnter}
             defaultValue={fullAddress}
             autoComplete="false"
+            onFocus={() => setHide(!hide)}
+            onBlur={() => setHide(!hide)}
           />
-          <div className={`loading ${isLoading ? "isLoading" : ""}`}>
+          <div className={`loading${isLoading ? " isLoading" : ""}`}>
             Loading
           </div>
           <div
-            className={`shortcut ${pressed ? "pressed" : ""} ${
-              isLoading ? "isLoading" : ""
-            }`}
+            className={`shortcut${hide ? " hide" : ""}${
+              pressed ? " pressed" : ""
+            }${isLoading ? " isLoading" : ""}`}
           >
             {isMac ? "cmd+/" : "ctrl+/"}
           </div>
