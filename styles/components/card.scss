@@ -7,6 +7,12 @@
   flex-direction: column;
   gap: 0.25rem;
 
+  p {
+    @media screen and (max-width: $mobile-width) {
+      font-size: 0.75rem;
+    }
+  }
+
   span {
     width: 64px !important;
   }
@@ -63,7 +69,37 @@
 }
 
 .pulse {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  h5 {
+    margin-top: 5rem;
+  }
+
+  .chart {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1rem;
+    height: 4rem;
+    width: 100%;
+
+    canvas {
+      margin: 0 -0.5rem;
+      min-width: calc(100% + 1rem);
+      max-height: 100%;
+    }
+    .blur {
+      position: absolute;
+      max-height: 100%;
+      max-width: 100%;
+      display: block;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      filter: blur(4px);
+      opacity: 0.75;
+    }
+  }
 }

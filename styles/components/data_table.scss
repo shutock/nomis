@@ -9,6 +9,7 @@
     flex-direction: column;
     width: 100%;
     gap: 0.5rem;
+    position: relative;
 
     .parameter,
     .description {
@@ -18,6 +19,8 @@
 
     .value {
       width: 20%;
+      min-width: 4rem;
+      padding: 0 0.5em;
     }
 
     .head {
@@ -60,13 +63,34 @@
       display: flex;
       flex-direction: column;
       color: $text-caption;
-      max-height: 6rem;
+      max-height: 12rem;
       overflow: hidden;
 
       transition: max-height $slow;
 
+      @media screen and (max-width: $mobile-width) {
+        line-height: 1.25;
+        font-size: 0.75rem;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 3.5rem;
+        height: 4rem;
+        background: linear-gradient(transparent, $bg-overlay-1-solid);
+
+        transition: opacity $fast;
+      }
+
       &.isVisible {
         max-height: 1200px;
+
+        &::after {
+          opacity: 0;
+        }
       }
 
       .item {

@@ -76,13 +76,19 @@
       flex-direction: row;
       padding: 0;
       background: none;
-      gap: 0.5rem;
+      gap: 1rem;
+      align-items: center;
 
       .userpick {
         $size: 4rem;
         width: $size;
         height: $size;
         padding: 0.25rem;
+      }
+
+      .meta {
+        align-items: flex-start;
+        gap: 0.5rem;
       }
     }
   }

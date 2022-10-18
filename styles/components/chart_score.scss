@@ -17,6 +17,10 @@
     height: $size;
     position: relative;
 
+    canvas {
+      transform: scale(-1, 1);
+    }
+
     .number,
     .blur,
     .bg {

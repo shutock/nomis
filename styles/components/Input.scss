@@ -1,3 +1,7 @@
+.Input .blockchains.open {
+  max-height: 509px;
+}
+
 .Input {
   margin: 0 1rem;
   padding: 1rem;
@@ -6,14 +10,20 @@
   background: $bg-overlay-1;
   border-radius: $border-l;
   position: relative;
+  line-height: 1;
+
+  @media screen and (max-width: $mobile-width) {
+    margin-bottom: -1rem;
+  }
 
   .blockchains {
     display: flex;
     flex-direction: column;
     background: $bg-overlay-1;
-    padding: 0.5rem 0.5rem 0.5rem 3.5rem;
+    padding: 0.25rem 0.5rem 0.25rem 3.25rem;
     border-radius: $border-m;
-    max-height: 4rem;
+    max-height: 3.5rem;
+    min-height: 3.5rem;
     overflow: hidden;
     position: absolute;
     min-width: fit-content;
@@ -24,7 +34,8 @@
     transition: max-height $fast, background $fast;
 
     @media screen and (max-width: $mobile-width) {
-      width: calc(100% - 2rem);
+      width: calc(50% - 1rem);
+      margin-top: 4.5rem;
     }
 
     &:hover {
@@ -43,7 +54,7 @@
       line-height: 1;
       position: absolute;
       left: 1rem;
-      top: 1rem;
+      top: 0.75rem;
       $size: 2rem;
       width: $size;
       height: $size - 0.125rem;
@@ -54,7 +65,7 @@
     }
 
     &.open {
-      max-height: 369px;
+      padding-bottom: 0.5rem;
 
       &::before {
         transform: rotate(180deg);
@@ -105,19 +116,18 @@
     }
 
     .inputWrapper {
-      margin-left: calc(213px + 1rem);
+      margin-left: calc(209px + 1rem);
       width: 100%;
       position: relative;
       overflow: hidden;
 
       @media screen and (max-width: $mobile-width) {
         margin-left: 0;
-        margin-top: 5rem;
       }
 
       input {
         width: 100%;
-        padding: 1.25rem;
+        padding: 1rem;
         border: none;
         font-size: calc(1.25rem - 1px);
         font-family: $font-main;
@@ -125,6 +135,8 @@
         background: $bg-overlay-1;
         border: 1px solid transparent;
         color: $text-body;
+        max-height: 3.5rem;
+        min-height: 3.5rem;
 
         transition: background $fast, border $fast;
 
@@ -134,11 +146,16 @@
 
         &:focus {
           border: 1px solid $color-pink;
+
+          .loading {
+            opacity: 0;
+          }
         }
       }
 
       .loading {
         z-index: 3;
+        backdrop-filter: $blur-soft;
         -webkit-backdrop-filter: $blur-soft;
         position: absolute;
         top: -50%;
@@ -176,7 +193,8 @@
           display: none;
         }
 
-        &.isLoading {
+        &.isLoading,
+        &.hide {
           top: 150%;
         }
 
@@ -189,17 +207,32 @@
     button {
       min-width: fit-content;
       border: none;
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-family: $font-main;
       border-radius: $border-m;
-      padding: 1.25rem;
+      padding: 1rem;
       height: fit-content;
       cursor: pointer;
-      background: $gradient-tech;
+      // background: $gradient-tech;
+      background: transparent;
+      border: 1px solid $border-color;
       font-weight: 500;
       color: #ffffff;
+      max-height: 3.5rem;
+      min-height: 3.5rem;
 
-      transition: transform $fast;
+      transition: transform $fast, background $fast, border $fast;
+
+      @media screen and (max-width: $mobile-width) {
+        width: calc(50% - 1rem);
+        margin-left: calc(50% + 1rem);
+      }
+
+      &:hover,
+      &:focus {
+        background: $bg-overlay-2;
+        border: 1px solid transparent;
+      }
 
       &:active {
         transform: scale(0.95);

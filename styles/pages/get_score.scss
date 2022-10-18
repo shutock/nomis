@@ -84,9 +84,8 @@
 
       a {
         color: $warning-light;
-        padding: 0.25em 0.75em 0.5em 0.75em;
-        border: 1px solid $border-color;
-        border-radius: 999px;
+        padding-bottom: 0;
+        border-bottom: 1px solid $warning-tint;
       }
     }
 

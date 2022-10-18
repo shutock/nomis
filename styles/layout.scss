@@ -39,3 +39,22 @@ main {
     min-height: calc(100vh - 197px - 6rem);
   }
 }
+
+::-webkit-scrollbar {
+  $size: 0.5rem;
+  width: $size;
+  height: $size;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: $bg-overlay-2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $bg-overlay-3;
+}
