@@ -9,11 +9,21 @@ export default function Pulse({ wallet, blockchain }) {
 
   return (
     <div className="card pulse">
-      {blockchain != exceptions ? <Chart.Pulse wallet={wallet} /> : ""}
-      <h5>{blockchain != exceptions ? "Wallet's Pulse" : "No Pusle Chart"}</h5>
+      {blockchain != exceptions && !wallet.stats.noData && (
+        <Chart.Pulse wallet={wallet} />
+      )}
+      <h5>
+        {blockchain != exceptions
+          ? wallet.stats.noData
+            ? "Innactive Wallet"
+            : "Wallet's Pulse"
+          : "No Pusle Chart"}
+      </h5>
       <p>
         {blockchain != exceptions
-          ? `This is wallet's on-chain activity. ${activityString}.`
+          ? wallet.stats.noData
+            ? "Here will be your activity pulse after a couple of transactions."
+            : `This is wallet's on-chain activity. ${activityString}.`
           : "There is no data to show."}
       </p>
     </div>

@@ -3,6 +3,11 @@ import { Doughnut } from "react-chartjs-2";
 
 export default function Score({ score }) {
   ChartJS.register(ArcElement);
+
+  const options = {
+    responsive: true,
+  };
+
   const data = {
     datasets: [
       {
@@ -28,12 +33,12 @@ export default function Score({ score }) {
   };
   return (
     <div className="chart">
-      <Doughnut data={data} />
+      <Doughnut data={data} options />
       <div className="bg">
-        <Doughnut data={dataBg} />
+        <Doughnut data={dataBg} options />
       </div>
       <div className="blur">
-        <Doughnut data={data} />
+        <Doughnut data={data} options />
       </div>
       <div className="number">{Math.round(score)}</div>
     </div>

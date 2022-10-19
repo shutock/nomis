@@ -14,7 +14,11 @@
   }
 
   span {
-    width: 64px !important;
+    width: 4rem !important;
+
+    @media screen and (max-width: $mobile-width) {
+      width: 3rem !important;
+    }
   }
 
   h5 {
@@ -36,9 +40,14 @@
   }
 
   .chart {
-    $size: 4rem;
-    width: $size;
-    height: $size;
+    max-width: 4rem;
+    max-height: 4rem;
+
+    @media screen and (max-width: $mobile-width) {
+      max-width: 3rem;
+      max-height: 3rem;
+    }
+
     position: relative;
 
     .number,
@@ -62,6 +71,9 @@
     .number {
       font-family: "Space Grotesk", sans-serif;
       font-size: 1.5rem;
+      @media screen and (max-width: $mobile-width) {
+        font-size: 1.125rem !important;
+      }
       font-weight: 700;
       color: $text-title;
     }
@@ -74,6 +86,9 @@
 
   h5 {
     margin-top: 5rem;
+    @media screen and (max-width: $mobile-width) {
+      margin-top: 4rem;
+    }
   }
 
   .chart {
@@ -82,6 +97,9 @@
     right: 0;
     top: 1rem;
     height: 4rem;
+    @media screen and (max-width: $mobile-width) {
+      height: 3rem;
+    }
     width: 100%;
 
     canvas {

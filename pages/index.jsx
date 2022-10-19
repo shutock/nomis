@@ -9,12 +9,14 @@ import aaveLogo from "../public/backed/aaveLogo.svg";
 import MainLayout from "../layouts/Main";
 import gradient from "../utilities/gradient.json";
 
+import circles from "../public/circles.svg";
+
 export default function Home() {
   return (
     <MainLayout title="Home">
-      {/* <div className="backgroundBlur">
+      <div className="backgroundBlur">
         <Lottie animationData={gradient} loop={true} />
-      </div> */}
+      </div>
       <div className="wrapper Home">
         <section className="title">
           <h1>Wallet Scoring and Credentials Protocol</h1>

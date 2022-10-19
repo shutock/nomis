@@ -34,7 +34,7 @@
     transition: max-height $fast, background $fast;
 
     @media screen and (max-width: $mobile-width) {
-      width: calc(50% - 1rem);
+      width: calc(75% - 1rem);
       margin-top: 4.5rem;
     }
 
@@ -222,10 +222,30 @@
       min-height: 3.5rem;
 
       transition: transform $fast, background $fast, border $fast;
+      position: relative;
+
+      &::before {
+        content: "Get Score";
+
+        @media screen and (max-width: $mobile-width) {
+          content: "navigate_next";
+          font-size: 2rem;
+          margin-left: 0.25rem;
+          font-family: $font-icon;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
 
       @media screen and (max-width: $mobile-width) {
-        width: calc(50% - 1rem);
-        margin-left: calc(50% + 1rem);
+        width: calc(25% - 1.5rem);
+        margin-left: calc(75% + 1.5rem);
       }
 
       &:hover,
