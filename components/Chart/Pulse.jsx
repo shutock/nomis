@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,7 +11,7 @@ import { Line } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 
-export default function Pulse({ wallet }) {
+export default function Pulse({ wallet, setMostActive }) {
   const currentDay = new Date();
   const yearAgoDay = new Date(currentDay);
   yearAgoDay.setFullYear(yearAgoDay.getFullYear() - 1);
@@ -42,6 +44,7 @@ export default function Pulse({ wallet }) {
   }
   let min = 99999;
   let max = 0;
+  let maxMonth;
 
   for (let i = 0; i < activity.length; i++) {
     for (let j = 0; j < activityRaw.length; j++) {
@@ -57,8 +60,12 @@ export default function Pulse({ wallet }) {
     }
     if (max < activity[i].count) {
       max = activity[i].count;
+      maxMonth = activity[i].month;
+      console.log(maxMonth);
     }
   }
+
+  setMostActive(maxMonth);
 
   const activityCounts = activity.map((item) => item.count);
 
