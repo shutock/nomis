@@ -7,7 +7,7 @@ import solanaLogo from "../public/backed/solanaLogo.svg";
 import aaveLogo from "../public/backed/aaveLogo.svg";
 
 import MainLayout from "../layouts/Main";
-import gradient from "../utilities/gradient.json";
+import background from "../utilities/background.json";
 
 import circles from "../public/circles.svg";
 
@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <MainLayout title="Home">
       <div className="backgroundBlur">
-        <Lottie animationData={gradient} loop={true} />
+        <Lottie animationData={background} loop={true} />
       </div>
       <div className="wrapper Home">
         <section className="title">
