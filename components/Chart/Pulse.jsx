@@ -61,7 +61,6 @@ export default function Pulse({ wallet, setMostActive }) {
     if (max < activity[i].count) {
       max = activity[i].count;
       maxMonth = activity[i].month;
-      console.log(maxMonth);
     }
   }
 
