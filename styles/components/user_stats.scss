@@ -13,9 +13,32 @@
   display: flex;
   gap: 1rem;
 
+  .age {
+    .container {
+      .units {
+        margin-left: -0.25rem;
+      }
+    }
+  }
+
   div {
     font-weight: 600;
     text-align: center;
+
+    .container {
+      display: flex;
+      gap: 0.25rem;
+      align-items: flex-end;
+
+      span {
+        width: fit-content;
+        font-size: 1em;
+      }
+    }
+  }
+
+  .units {
+    font-weight: 400;
   }
 
   span {
@@ -33,32 +56,5 @@
     border-left: 1px solid $border-color;
     border-right: 1px solid $border-color;
     padding: 0 1rem;
-  }
-
-  .mo::after {
-    content: " months";
-    font-weight: 400;
-  }
-
-  .aeternity::before {
-    content: "AE ";
-  }
-  .binance::before {
-    content: "BNB ";
-  }
-  .ethereum::before {
-    content: "ETH ";
-  }
-  .evmos::before {
-    content: "EVMOS ";
-  }
-  .polygon::before {
-    content: "MATIC ";
-  }
-  .ripple::before {
-    content: "XRP ";
-  }
-  .solana::before {
-    content: "SOL ";
   }
 }
