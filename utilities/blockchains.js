@@ -69,6 +69,13 @@ export const blockchains = [
     placeholder: "Wallet address",
     coin: "SOL",
   },
+  {
+    item: "Hedera",
+    slug: "hedera",
+    icon: "/blockchains/hedera.svg",
+    placeholder: "Wallet address",
+    coin: "HBAR",
+  },
   // {
   //   item: "Celo",
   //   slug: "celo",
