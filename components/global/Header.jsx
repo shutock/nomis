@@ -26,8 +26,8 @@ export default function Header() {
             <ul className="mainMenu">
               {mainMenu.map((item) => (
                 <li key={item.title}>
-                  <Link href={item.link}>
-                    <a>{item.title}</a>
+                  <Link href={item.link} passHref>
+                    <a target="_blank">{item.title}</a>
                   </Link>
                 </li>
               ))}

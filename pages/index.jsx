@@ -14,9 +14,9 @@ import circles from "../public/circles.svg";
 export default function Home() {
   return (
     <MainLayout title="Home">
-      <div className="backgroundBlur">
+      {/* <div className="backgroundBlur">
         <Lottie animationData={background} loop={true} />
-      </div>
+      </div> */}
       <div className="wrapper Home">
         <section className="title">
           <h1>Wallet Scoring and Credentials Protocol</h1>
@@ -30,26 +30,28 @@ export default function Home() {
               <span>Try dApp</span>
             </button>
           </Link>
-          <Link href="https://api.nomis.cc">
-            <button className="docs">
-              <span>Read Docs</span>
-            </button>
+          <Link href="https://api.nomis.cc" passHref>
+            <a target="_blank">
+              <button className="docs">
+                <span>Read Docs</span>
+              </button>
+            </a>
           </Link>
         </section>
         <section className="backed">
           <p>Backed by</p>
-          <Link href='https://aave.com/?utm_source="nomis.cc"'>
-            <a>
+          <Link href='https://aave.com/?utm_source="nomis.cc"' passHref>
+            <a target="_blank">
               <Image src={aaveLogo} alt="AAVE"></Image>
             </a>
           </Link>
-          <Link href='https://solana.com/?utm_source="nomis.cc"'>
-            <a>
+          <Link href='https://solana.com/?utm_source="nomis.cc"' passHref>
+            <a target="_blank">
               <Image src={solanaLogo} alt="Solana"></Image>
             </a>
           </Link>
-          <Link href='https://1inch.io/?utm_source="nomis.cc"'>
-            <a className="inch">
+          <Link href='https://1inch.io/?utm_source="nomis.cc"' passHref>
+            <a target="_blank" className="inch">
               <Image src={inchLogo} alt="1inch"></Image>
             </a>
           </Link>
