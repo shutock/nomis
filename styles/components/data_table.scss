@@ -18,6 +18,7 @@
     }
 
     .value {
+      word-wrap: break-word;
       width: 20%;
       min-width: 4rem;
       padding: 0 0.5em;
@@ -86,7 +87,7 @@
       }
 
       &.isVisible {
-        max-height: 9999px;
+        max-height: 2000px;
 
         &::after {
           opacity: 0;
