@@ -66,14 +66,14 @@ export default function Input({ fullAddress, blockchain }) {
 
   const handleClick = async () => {
     await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
-    await router.reload();
+    // await router.reload();
   };
 
   const handleEnter = async (e) => {
     if (e.keyCode === 13) {
       // console.log("Enter " + address);
       await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
-      await router.reload();
+      // await router.reload();
     }
   };
 
