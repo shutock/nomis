@@ -9,14 +9,9 @@ import aaveLogo from "../public/backed/aaveLogo.svg";
 import MainLayout from "../layouts/Main";
 import background from "../utilities/background.json";
 
-import circles from "../public/circles.svg";
-
 export default function Home() {
   return (
     <MainLayout title="Home">
-      {/* <div className="backgroundBlur">
-        <Lottie animationData={background} loop={true} />
-      </div> */}
       <div className="wrapper Home">
         <section className="title">
           <h1>Wallet Scoring and Credentials Protocol</h1>
