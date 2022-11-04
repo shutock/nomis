@@ -62,7 +62,6 @@
 
   .backed {
     padding: 0.5rem 0.5rem 0.5rem 2rem;
-    // background: hsla(0, 0, 0, 0.6);
     background: $bg-overlay-1;
     width: fit-content;
     margin: auto;
@@ -72,10 +71,16 @@
     border-radius: $border-m;
     box-shadow: 0 1rem 2rem hsla(0, 0, 0, 0.1);
     gap: 0;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 52.72px;
+    }
 
     @media screen and (max-width: $mobile-width) {
+      justify-content: center;
       padding: 0.5rem;
-      // flex-direction: column;
       width: calc(100% - 2rem);
       flex-wrap: wrap;
       p {

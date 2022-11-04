@@ -1,13 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import Lottie from "lottie-react";
 
 import inchLogo from "../public/backed/inchLogo.svg";
 import solanaLogo from "../public/backed/solanaLogo.svg";
 import aaveLogo from "../public/backed/aaveLogo.svg";
+import polygonLogo from "../public/backed/polygonLogo.svg";
 
 import MainLayout from "../layouts/Main";
-import background from "../utilities/background.json";
 
 export default function Home() {
   return (
@@ -48,6 +47,14 @@ export default function Home() {
           <Link href='https://1inch.io/?utm_source="nomis.cc"' passHref>
             <a target="_blank" className="inch">
               <Image src={inchLogo} alt="1inch"></Image>
+            </a>
+          </Link>
+          <Link
+            href='https://polygon.technology/?utm_source="nomis.cc"'
+            passHref
+          >
+            <a target="_blank" className="polygon">
+              <Image src={polygonLogo} alt="oplygon"></Image>
             </a>
           </Link>
         </section>
