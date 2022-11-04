@@ -39,19 +39,19 @@ export default function Input({ fullAddress, blockchain }) {
   );
   const [pressed, setPressed] = React.useState(false);
 
-  // React.useEffect(() => {
-  //   const handleStart = (url) => url !== router.asPath && setIsLoading(true);
-  //   const handleComplete = (url) =>
-  //     url === router.asPath && setIsLoading(false);
-  //   router.events.on("routeChangeStart", handleStart);
-  //   router.events.on("routeChangeComplete", handleComplete);
-  //   router.events.on("routeChangeError", handleComplete);
-  //   return () => {
-  //     router.events.off("routeChangeStart", handleStart);
-  //     router.events.off("routeChangeComplete", handleComplete);
-  //     router.events.off("routeChangeError", handleComplete);
-  //   };
-  // });
+  React.useEffect(() => {
+    const handleStart = (url) => url !== router.asPath && setIsLoading(true);
+    const handleComplete = (url) =>
+      url === router.asPath && setIsLoading(false);
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  });
 
   const router = useRouter();
   // const www = "https://test.nomis.cc";
@@ -65,15 +65,14 @@ export default function Input({ fullAddress, blockchain }) {
   });
 
   const handleClick = async () => {
+    setIsLoading(true);
     await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
-    // await router.reload();
   };
 
   const handleEnter = async (e) => {
     if (e.keyCode === 13) {
-      // console.log("Enter " + address);
+      setIsLoading(true);
       await router.push(`${www}/score/${blockchains[active].slug}/${address}`);
-      // await router.reload();
     }
   };
 
@@ -135,7 +134,7 @@ export default function Input({ fullAddress, blockchain }) {
             onChange={(e) => setAddress(e.target.value)}
             onKeyDown={handleEnter}
             defaultValue={address}
-            autoComplete="false"
+            autoComplete="true"
             onFocus={() => setHide(!hide)}
             onBlur={() => setHide(!hide)}
           />

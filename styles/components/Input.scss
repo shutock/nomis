@@ -159,14 +159,34 @@
         -webkit-backdrop-filter: $blur-soft;
         position: absolute;
         top: -50%;
-        right: 1rem;
+        right: 0.75rem;
         transform: translateY(-50%);
         padding: 0.5rem;
         border-radius: $border-s;
         background: $information-tint;
         color: $information-light;
+        padding-left: 2rem;
 
         transition: top $fast;
+
+        &::before {
+          content: "autorenew";
+          font-family: $font-icon;
+          font-size: 1.5rem;
+          position: absolute;
+          left: 0.25rem;
+          top: 0.25rem;
+          animation: spin 1s ease-in-out infinite;
+
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        }
 
         &.isLoading {
           top: 50%;
