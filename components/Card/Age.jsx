@@ -10,7 +10,7 @@ export default function Age({ wallet }) {
   const oldAge = 24;
 
   const newTitle = "At the Beginning of the Path";
-  const youngTitle = "Just a Neginner";
+  const youngTitle = "Just a Beginner";
   const mediumTitle = "Crypto-Friendly Wallet";
   const oldTitle = "A Pretty Old Wallet";
 

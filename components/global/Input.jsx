@@ -80,11 +80,19 @@ export default function Input({ fullAddress, blockchain }) {
   const [hide, setHide] = React.useState(false);
 
   const inputRef = React.useRef();
-  useHotkeys("ctrl+/", () => {
-    inputRef.current.focus();
-    setTimeout(() => setPressed(false), 500);
-    setPressed(true);
-  });
+  if (isMac) {
+    useHotkeys("ctrl+/", () => {
+      inputRef.current.focus();
+      setTimeout(() => setPressed(false), 500);
+      setPressed(true);
+    });
+  } else {
+    useHotkeys("cmd+/", () => {
+      inputRef.current.focus();
+      setTimeout(() => setPressed(false), 500);
+      setPressed(true);
+    });
+  }
 
   return (
     <div className="Input">
