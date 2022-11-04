@@ -81,13 +81,13 @@ export default function Input({ fullAddress, blockchain }) {
 
   const inputRef = React.useRef();
   if (isMac) {
-    useHotkeys("ctrl+/", () => {
+    useHotkeys("cmd+/", () => {
       inputRef.current.focus();
       setTimeout(() => setPressed(false), 500);
       setPressed(true);
     });
   } else {
-    useHotkeys("cmd+/", () => {
+    useHotkeys("ctrl+/", () => {
       inputRef.current.focus();
       setTimeout(() => setPressed(false), 500);
       setPressed(true);
