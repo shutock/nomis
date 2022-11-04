@@ -134,7 +134,7 @@ export default function Input({ fullAddress, blockchain }) {
             required
             onChange={(e) => setAddress(e.target.value)}
             onKeyDown={handleEnter}
-            defaultValue={fullAddress}
+            defaultValue={address}
             autoComplete="false"
             onFocus={() => setHide(!hide)}
             onBlur={() => setHide(!hide)}
