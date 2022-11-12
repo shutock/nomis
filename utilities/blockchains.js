@@ -14,6 +14,13 @@ export const blockchains = [
     coin: "BNB",
   },
   {
+    item: "Celo",
+    slug: "celo",
+    icon: "/blockchains/celo.svg",
+    placeholder: "0x... address",
+    coin: "CELO",
+  },
+  {
     item: "Cube",
     slug: "cube",
     icon: "/blockchains/cube.svg",
