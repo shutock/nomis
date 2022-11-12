@@ -27,7 +27,7 @@
     overflow: hidden;
     position: absolute;
     min-width: fit-content;
-    z-index: 2;
+    z-index: 1;
     backdrop-filter: $blur-hard;
     -webkit-backdrop-filter: $blur-hard;
 
@@ -154,7 +154,7 @@
       }
 
       .loading {
-        z-index: 3;
+        z-index: 2;
         backdrop-filter: $blur-soft;
         -webkit-backdrop-filter: $blur-soft;
         position: absolute;

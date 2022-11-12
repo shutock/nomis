@@ -12,22 +12,24 @@ export default function Input({ fullAddress, blockchain }) {
       ? "0"
       : blockchain === "bsc"
       ? "1"
-      : blockchain === "cube"
+      : blockchain === "celo"
       ? "2"
-      : blockchain === "ethereum"
+      : blockchain === "cube"
       ? "3"
-      : blockchain === "evmos"
+      : blockchain === "ethereum"
       ? "4"
-      : blockchain === "klaytn"
+      : blockchain === "evmos"
       ? "5"
-      : blockchain === "moonbeam"
+      : blockchain === "klaytn"
       ? "6"
-      : blockchain === "polygon"
+      : blockchain === "moonbeam"
       ? "7"
-      : blockchain === "ripple"
+      : blockchain === "polygon"
       ? "8"
-      : blockchain === "solana"
+      : blockchain === "ripple"
       ? "9"
+      : blockchain === "solana"
+      ? "10"
       : initialInput;
 
   const [isOpen, setIsOpen] = React.useState(false);
@@ -141,13 +143,7 @@ export default function Input({ fullAddress, blockchain }) {
           <div className={`loading${isLoading ? " isLoading" : ""}`}>
             Loading
           </div>
-          <div
-            className={`shortcut${hide ? " hide" : ""}${
-              pressed ? " pressed" : ""
-            }${isLoading ? " isLoading" : ""}`}
-          >
-            {isMac ? "cmd+/" : "ctrl+/"}
-          </div>
+          <div className="shortcut">{isMac ? "cmd+/" : "ctrl+/"}</div>
         </div>
         <button onClick={handleClick} className="button callout"></button>
       </div>
