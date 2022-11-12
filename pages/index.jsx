@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <MainLayout title="Home">
       <div className="wrapper Home">
+        <div className="background"></div>
         <section className="title">
           <h1>Wallet Scoring and Credentials Protocol</h1>
           <h2>

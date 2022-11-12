@@ -6,6 +6,25 @@
   @media screen and (max-width: $mobile-width) {
     margin: 2rem 0;
   }
+  .background {
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+    width: 80vw;
+    height: 80vh;
+    background: url("/background.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1;
+
+    @media screen and (max-width: $mobile-width) {
+      top: 20vh;
+      left: 0;
+      width: 100vw;
+      height: 60vh;
+    }
+  }
 
   .title {
     flex-direction: column;

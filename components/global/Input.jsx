@@ -6,7 +6,7 @@ import { blockchains } from "../../utilities/blockchains";
 import { useHotkeys } from "react-hotkeys-hook";
 
 export default function Input({ fullAddress, blockchain }) {
-  const initialInput = 3;
+  const initialInput = 4;
   const activeBlockchain =
     blockchain === "aeternity"
       ? "0"
