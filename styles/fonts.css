@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Inter Var";
+  src: url("/fonts/inter.var.woff2") format("woff2");
+  font-weight: 100 999;
+}
+
+@font-face {
+  font-family: "Space Grotesk Var";
+  src: url("/fonts/space-grotesk.var.ttf") format("truetype");
+  font-weight: 100 999;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/space-grotesk.var.ttf") format("truetype");
+  font-weight: 400;
+}

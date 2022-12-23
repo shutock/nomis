@@ -1,0 +1,17 @@
+@import url("./fonts.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter Var", "Inter", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+main {
+  padding-bottom: 200vh;
+}
+
+body {
+  background: var(--nomis-colors-body-bg);
+}
