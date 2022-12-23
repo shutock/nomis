@@ -6,7 +6,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { theme as extendedTheme } from "../src/shared";
 
 import { Provider } from "react-redux";
-import { store } from "../app";
+import { store } from "../src/app";
 
 import { createClient, configureChains, mainnet, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";

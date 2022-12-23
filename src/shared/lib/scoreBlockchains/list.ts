@@ -7,7 +7,7 @@ interface IScoreBlockchain {
   evm: boolean;
 }
 
-export const list: IScoreBlockchain[] = [
+export const scoreBlockchainsList: IScoreBlockchain[] = [
   {
     label: "Aeternity",
     apiSlug: "aeternity",

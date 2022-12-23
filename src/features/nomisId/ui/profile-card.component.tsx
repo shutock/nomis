@@ -19,7 +19,7 @@ export const ProfileCard = (props: IProfileCardProps) => {
   const shortAddress = useShortAddress(address);
 
   const { colorMode } = useColorMode();
-  const { onCopy, value, hasCopied } = useClipboard(`${address}`);
+  const { onCopy } = useClipboard(`${address}`);
 
   const [copied, setCopied] = React.useState(false);
 

@@ -11,6 +11,7 @@ export const Header = () => {
 
   return (
     <Container
+      zIndex={"sticky"}
       as={"header"}
       position={"fixed"}
       left={0}

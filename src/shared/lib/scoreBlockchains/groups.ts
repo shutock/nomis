@@ -4,7 +4,7 @@ interface IGroup {
   apiSlug: string;
 }
 
-export const groups: IGroup[] = [
+export const scoreBlockchainsGroups: IGroup[] = [
   { label: "Finance", slug: "finance", apiSlug: "score" },
   { label: "Ecology", slug: "eco", apiSlug: "eco-score" },
 ];

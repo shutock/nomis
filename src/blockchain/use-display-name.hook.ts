@@ -18,7 +18,7 @@ export const useDisplayName = (props: useDisplayProps) => {
 
 export const useShortAddress = (address: `0x${string}` | undefined) => {
   if (address?.slice(0, 2) === "0x") {
-    return `0x ${address?.slice(2, 6).toLowerCase()}...${address
+    return `0x${address?.slice(2, 6).toLowerCase()}...${address
       ?.slice(-4)
       .toLowerCase()}`;
   } else

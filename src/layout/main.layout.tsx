@@ -1,10 +1,12 @@
 import dynamic from "next/dynamic";
+import React from "react";
 
-interface IMainLayout {
-  children: JSX.Element;
+interface IMainLayoutProps {
+  children: React.ReactNode;
 }
 
-export const MainLayout = ({ children }: IMainLayout) => {
+export const MainLayout = (props: IMainLayoutProps) => {
+  const { children } = props;
   const Header = dynamic(() => import("./header.component"), { ssr: false });
   return (
     <>

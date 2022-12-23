@@ -1,4 +1,5 @@
 import { Box, Tooltip } from "@chakra-ui/react";
+import { useFormatScore } from "../../../shared";
 
 import { IData } from "../../../shared/api/nomis/scoreResponse.interface";
 
@@ -8,7 +9,7 @@ interface IScoreProps {
 
 export const Score = (props: IScoreProps) => {
   const { api } = props;
-  const score = Math.round(api?.score! * 350 + 400);
+  const formatedScore = useFormatScore(api?.score);
   const color = 120 * api?.score!;
 
   return (
@@ -19,7 +20,7 @@ export const Score = (props: IScoreProps) => {
       backdropFilter={"blur(1rem)"}
     >
       <Box
-        bg={api?.score! ? `hsla(${color}, 100%, 50%, 100%)` : "blue.4 00"}
+        bg={api?.score! ? `hsla(${color}, 100%, 50%, 100%)` : "blue.400"}
         color={"white"}
         maxW={"fit-content"}
         px={"2"}
@@ -29,7 +30,7 @@ export const Score = (props: IScoreProps) => {
         top={"0"}
         cursor={"help"}
       >
-        {score ? score : "Loading"}
+        {formatedScore ? formatedScore : "Loading"}
       </Box>
     </Tooltip>
   );
