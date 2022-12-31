@@ -7,7 +7,7 @@ import { ICardText } from "@shared/localization";
 import { IConnectUser } from "@entities/connect-user";
 import { ISearchUser } from "@entities/search-user";
 
-export const CardTurnover = (props: { user: IConnectUser }) => {
+export const CardTurnover = (props: { user: IConnectUser | ISearchUser }) => {
   const { user } = props;
   const { colorMode } = useColorMode();
 
@@ -24,7 +24,8 @@ export const CardTurnover = (props: { user: IConnectUser }) => {
   const turnoverUSD = turnover! * nativeCurrencyPrice;
   const noData = user.stats ? user.stats.noData : true;
   const nativeCurrency = user.wallet
-    ? user.wallet?.blockchain?.nativeCurrency.symbol ||
+    ? // @ts-ignore: Unreachable code error
+      user.wallet?.blockchain?.nativeCurrency.symbol ||
       user.wallet?.blockchain?.nativeCurrency
     : "";
 
