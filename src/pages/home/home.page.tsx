@@ -1,4 +1,4 @@
-import { MainLayout } from "../../layout";
+import { MainLayout } from "@shared/ui";
 
 export const Home = () => {
   return (

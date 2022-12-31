@@ -1,1 +1,1 @@
-export * from "./nomis";
+export * from "./score";

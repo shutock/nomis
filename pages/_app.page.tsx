@@ -6,13 +6,14 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { theme as extendedTheme } from "../src/shared";
 
 import { Provider } from "react-redux";
-import { store } from "../src/app";
+import { store } from "@app/store";
 
-import { createClient, configureChains, mainnet, WagmiConfig } from "wagmi";
+import { createClient, configureChains, WagmiConfig } from "wagmi";
+import { mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
-import { LedgerConnector } from "wagmi/connectors/ledger";
+// import { LedgerConnector } from "wagmi/connectors/ledger";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 
@@ -44,7 +45,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           darkMode: true,
         },
       }),
-      new LedgerConnector({ chains }),
+      // new LedgerConnector({ chains }),
       new MetaMaskConnector({ chains }),
     ],
   });

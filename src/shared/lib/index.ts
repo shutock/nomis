@@ -1,1 +1,1 @@
-export * from "./scoreBlockchains";
+export * from "./blockchains";

@@ -1,21 +1,19 @@
 import React from "react";
-import { IAddressProps } from "../../../pages/[blockchain]/[address].page";
-import { MainLayout, WithSidebar } from "../../layout";
+import { IAddressProps } from "pages/[blockchain]/[address].page";
+import { MainLayout, WithSidebar, StatsCards, ProfileCard } from "@shared/ui";
+import { useFormatScore } from "@shared/utils";
 import {
-  useLazyWalletScoreQuery,
-  scoreBlockchainsList,
-  useFormatScore,
-} from "../../shared";
-import { Cards } from "./cards";
-import {
-  IUserWallet,
-  setStats,
-  setWallet,
-  setScore,
-  setReset,
-} from "../../entities";
+  searchSetStats,
+  searchSetWallet,
+  searchSetScore,
+  searchSetReset,
+  ISearchUserWallet,
+  searchUserSelector,
+} from "@entities/search-user";
 import { useEnsAddress, useEnsAvatar, useEnsName } from "wagmi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { scoreBlockchainsList } from "@shared/lib";
+import { scoreApi } from "@shared/api";
 
 export const Address = (props: IAddressProps) => {
   const { query } = props;
@@ -23,7 +21,7 @@ export const Address = (props: IAddressProps) => {
 
   const blockchain = scoreBlockchainsList.find(
     (blockchain) => blockchain.apiSlug === query.blockchain
-  )?.apiSlug;
+  );
 
   const [address, setAddress] = React.useState({
     data: "",
@@ -38,7 +36,7 @@ export const Address = (props: IAddressProps) => {
     isLoading: true,
   });
 
-  const wallet: IUserWallet = {
+  const wallet: ISearchUserWallet = {
     address: address.data,
     blockchain: blockchain,
     avatar: avatar.data,
@@ -58,7 +56,7 @@ export const Address = (props: IAddressProps) => {
   const [
     getScore,
     { data: apiData, isLoading: apiLoading, isError: apiError },
-  ] = useLazyWalletScoreQuery();
+  ] = scoreApi.useLazyWalletScoreQuery();
   const formatedScore = useFormatScore(apiData?.score);
 
   React.useEffect(() => {
@@ -84,32 +82,37 @@ export const Address = (props: IAddressProps) => {
     query.address,
   ]);
 
-  const ensLoading =
-    address.isLoading || name.isLoading || avatar.isLoading ? true : false;
-
   React.useEffect(() => {
-    !ensLoading &&
+    addressData &&
       getScore({
         address: address.data,
         blockchain: query.blockchain,
       });
-  }, [address.data, ensLoading, getScore, query.blockchain]);
+  }, [address.data, addressData, getScore, query.address, query.blockchain]);
 
   React.useEffect(() => {
-    dispatch(setReset());
+    dispatch(searchSetReset());
     if (apiData) {
-      dispatch(setWallet(wallet));
-      dispatch(setStats(apiData));
-      dispatch(setScore(formatedScore));
+      dispatch(searchSetWallet(wallet));
+      dispatch(searchSetStats(apiData));
+      formatedScore && dispatch(searchSetScore(formatedScore));
     }
   }, [apiData, dispatch, formatedScore]);
+
+  const user = useSelector(searchUserSelector);
+
+  if (avatarLoading || nameLoading || addressLoading || !apiData)
+    return (
+      <MainLayout>
+        <WithSidebar>Loading...</WithSidebar>
+      </MainLayout>
+    );
 
   return (
     <MainLayout>
       <WithSidebar>
-        {ensLoading && "Your request is in the progress..."}
-        {!ensLoading && apiLoading && "Your request is in the progress..."}
-        {!ensLoading && !apiLoading && <Cards />}
+        <StatsCards user={user} />
+        <ProfileCard user={user} />
       </WithSidebar>
     </MainLayout>
   );
