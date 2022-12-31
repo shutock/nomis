@@ -74,6 +74,7 @@ export const ProfileCard = (props: IProfileCard) => {
       <Flex gap={"4"} mt={"4"}>
         <Flex flexDir={"column"}>
           <Text>{`${Math.round(user.stats?.balance! * 1000) / 1000} ${
+            // @ts-ignore: Unreachable code error
             user.wallet?.blockchain?.nativeCurrency.symbol! ||
             user.wallet?.blockchain?.nativeCurrency
           }`}</Text>
@@ -90,6 +91,7 @@ export const ProfileCard = (props: IProfileCard) => {
           }
         >
           <Text>{`${Math.round(user.stats?.walletTurnover! * 1000) / 1000} ${
+            // @ts-ignore: Unreachable code error
             user.wallet?.blockchain?.nativeCurrency.symbol! ||
             user.wallet?.blockchain?.nativeCurrency
           }`}</Text>
